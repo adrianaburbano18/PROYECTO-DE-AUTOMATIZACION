@@ -45,7 +45,7 @@ describe('Primer conjunto',function()
         cy.wait(1000)
         .get('#react-select-9-option-0').click();
 
-        cy.wait(4000)
+        cy.wait(5000)
       //--------------
         cy.get('.btn')       
         cy.contains('NUEVO').click()  
