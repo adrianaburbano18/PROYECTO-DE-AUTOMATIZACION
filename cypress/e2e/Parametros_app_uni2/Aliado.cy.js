@@ -58,12 +58,9 @@ describe('Primer conjunto',function()
         const randomEmail = Math.random().toString(36).substring(2,15)+"@gmail.com"
         cy.get('.form-control').eq(5).type(randomEmail);
 
-
-         // select concesionario  <div class=" css-cd1un6-option" id="react-select-2-option-0" tabindex="-1">HONDA SUPERMOTOS NEIVA</div>
-         cy.get('.form-group').eq(5).click()
-        .type('HONDA SUPERMOTOS') 
-        .get('#react-select-2-option-0')
-        .click(); 
+        cy.get('.form-group .css-1115wtz-control').type('HONDA SUPERMOTOS NEIVA')
+        cy.get('div[id^="react-select-"]').click()
+        cy.get('.css-1rhbuit-multiValue').should('contain.text', 'HONDA SUPERMOTOS NEIVA')
 
  
         cy.wait(1000);       

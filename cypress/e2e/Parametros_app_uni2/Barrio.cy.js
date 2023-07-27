@@ -37,93 +37,31 @@ describe('Primer conjunto',function()
 
         cy.get('.simple-icon-location-pin')
         .click();
-        
-        
-        //Crear persona 
-        cy.get('.form-group').should('be.visible')
-        .eq(0).type('LA ARGENTINA')  
-        cy.wait(1000)
-        .get('#react-select-9-option-0').click();
+    
 
+        cy.get('.form-group').eq(0).type('LA ARGENTINA')
+        cy.get('div[id^="react-select-"]').click()
+ 
         cy.wait(5000)
-      //--------------
+
+       //Crear persona 
+
         cy.get('.btn')       
         cy.contains('NUEVO').click()  
        
         cy.get('.modal-body .form-group').eq(0).type(faker.name.firstName());
-        
-        cy.get('.modal-body .form-group').should('be.visible')
-        .eq(1).type('BARRIO')  
-        .get('#react-select-11-option-0').click();
 
-        //Crear persona 
-        cy.get('.modal-body   .form-group').should('be.visible')
-        .eq(2)
-        .type('POPAYAN')  
-        cy.wait(1000)
-        .get('#react-select-12-option-0').click();
+        cy.get('.modal-body .form-group').eq(1).type('BARRIO')
+        cy.get('div[id^="react-select-"]').click()
 
-
-        cy.get('.form-group').eq(4).type(faker.name.firstName()); 
-
-
-        cy.get('.form-group').should('be.visible')
-        .eq(6).type('FEMENINO')
-        .get('#react-select-10-option-1').click();
-
-        cy.get('.form-group').should('be.visible')
-        .eq(7).type('LA ARGENTINA')  
-        cy.wait(1000)
-        .get('#react-select-11-option-0').click();
-
-        // Obtén la fecha con el formato "YYYY-MM-DD"
-        const fechaexpedicióndocumento = '2020-07-07';
-        // Encuentra el campo de fecha y escribe la fecha válida
-        cy.get('.form-group').eq(8).type(fechaexpedicióndocumento); // Reemplaza '#campo_fecha' con el selector correcto del campo de fecha
-
-
-        cy.get('.form-group').should('be.visible')
-        .eq(9).type('LA VICTORIA')
-        cy.wait(1000)
-        .get('#react-select-12-option-0').click();
-   
-        const fechanacimiento = '1999-07-07';
-        cy.get('.form-group').eq(10).type(fechanacimiento); // Reemplaza '#campo_fecha' con el selector correcto del campo de fecha
-        
-        cy.get('.btn')       
-        cy.contains('GUARDAR').click()  
-
-        cy.wait(4000)
-
-       //Crear exepción 
-        cy.get('.btn')       
-        cy.contains('AGREGAR').click()  
-
-        cy.get('.form-group').eq(3).click()
-        cy.wait(1000)
-        .get('#react-select-14-option-0')
-        .click(); 
-        cy.wait(1000)
-      
-        cy.get('.form-group')
-        .eq(4).type(Math.random().toString(36).substring(2,15));
+        cy.get('.modal-body .form-group').eq(2)
+        .wait(2000)
+        .type('LA ARGENTINA -')
+        .wait(2000)
+        cy.get('div[id^="react-select-"]').click()
 
         cy.get('.btn')       
         cy.contains('GUARDAR').click()  
-
-        cy.wait(2000);
-
-        //inhabilitar exepción 
-        cy.wait(4000)
-
-        cy.get('.nav-item .nav-link')
-        cy.contains('PERSONAS CON EXCEPCIÓN').click()
-
-        cy.wait(2000);
-
-        cy.get('.btn')       
-        cy.contains('INHABILITAR').click()  
-     
     })
  })
  

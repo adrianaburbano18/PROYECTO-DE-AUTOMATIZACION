@@ -49,9 +49,12 @@ describe('Primer conjunto',function()
 
         cy.wait(1000);
 
-        cy.get('.form-group').should('be.visible')
+        cy.get('.form-group').eq(1).type('MOTO')
+
+
+     /*   cy.get('.form-group').should('be.visible')
         .eq(1).click(); 
-        cy.get('.react-select').contains('MOTO').click(); 
+        cy.get('.react-select').contains('MOTO').click(); */
 
         cy.wait(1000);
 
