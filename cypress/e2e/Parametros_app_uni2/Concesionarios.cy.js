@@ -45,16 +45,16 @@ describe('Primer conjunto',function()
         cy.contains('NUEVO').click();
 
       //npm install @faker-js/faker --save-dev -- nombres random
-        cy.get('.form-group').eq(0).type(faker.name.firstName()); 
+        cy.get('#form-concesionario')
+        .find('[name="name"]')
+        .type(faker.name.firstName()); 
 
         cy.wait(1000);
 
-        cy.get('.form-group').eq(1).type('MOTO')
-
-
-     /*   cy.get('.form-group').should('be.visible')
-        .eq(1).click(); 
-        cy.get('.react-select').contains('MOTO').click(); */
+        cy.get('.form-group')
+        .eq(1)
+        .type('CULTIVA')
+        cy.get('div[id^="react-select-"]').click()
 
         cy.wait(1000);
 

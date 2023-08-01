@@ -66,15 +66,11 @@ describe('Primer conjunto',function()
 
         cy.get('.form-group').eq(4).type(faker.name.firstName()); 
 
+        cy.get('.form-group').eq(6).type('FEMENINO')
+        cy.get('div[id^="react-select-"]').click()
 
-        cy.get('.form-group').should('be.visible')
-        .eq(6).type('FEMENINO')
-        .get('#react-select-10-option-1').click();
-
-        cy.get('.form-group').should('be.visible')
-        .eq(7).type('LA ARGENTINA')  
-        cy.wait(1000)
-        .get('#react-select-11-option-0').click();
+        cy.get('.form-group').eq(7).type('LA ARGENTINA')
+        cy.get('div[id^="react-select-"]').click()
 
         // Obtén la fecha con el formato "YYYY-MM-DD"
         const fechaexpedicióndocumento = '2020-07-07';
@@ -82,10 +78,8 @@ describe('Primer conjunto',function()
         cy.get('.form-group').eq(8).type(fechaexpedicióndocumento); // Reemplaza '#campo_fecha' con el selector correcto del campo de fecha
 
 
-        cy.get('.form-group').should('be.visible')
-        .eq(9).type('LA VICTORIA')
-        cy.wait(1000)
-        .get('#react-select-12-option-0').click();
+        cy.get('.form-group').eq(9).type('LA ARGENTINA')
+        cy.get('div[id^="react-select-"]').click()
    
         const fechanacimiento = '1999-07-07';
         cy.get('.form-group').eq(10).type(fechanacimiento); // Reemplaza '#campo_fecha' con el selector correcto del campo de fecha
@@ -99,11 +93,8 @@ describe('Primer conjunto',function()
         cy.get('.btn')       
         cy.contains('AGREGAR').click()  
 
-        cy.get('.form-group').eq(3).click()
-        cy.wait(1000)
-        .get('#react-select-14-option-0')
-        .click(); 
-        cy.wait(1000)
+        cy.get('.form-group').eq(3).type('SIMIT')
+        cy.get('div[id^="react-select-"]').click()
       
         cy.get('.form-group')
         .eq(4).type(Math.random().toString(36).substring(2,15));
