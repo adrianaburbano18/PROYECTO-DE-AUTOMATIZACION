@@ -78,19 +78,12 @@ describe('Primer conjunto',function()
          
         cy.wait(1000);       
 
-       cy.get('.form-control').eq(1).type(faker.name.firstName().substring(2,5)); 
+       cy.get('.form-control').eq(1).type(faker.name.firstName().substring(2,3)); 
         
-       cy.wait(2000);       
- 
+       cy.wait(1000);       
      
         cy.get('.btn')       
         cy.contains('GUARDAR').click() 
-
-        cy.wait(4000);     
-
-     /*   //BUSCAR ALIADO
-        cy.get('#search')       
-        cy.type('ADRIANA').click()  */
 
 
 

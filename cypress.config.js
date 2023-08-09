@@ -10,11 +10,10 @@ module.exports = defineConfig({
 
   testFile:"**/*.feature",
   
+  //repedir las pruebas
   /*retries:{
   runMode:1,
   openMode:1
   }*/
-
- // const cucumber = require ('cypress-cucumber-preprocessor').default
  
 });

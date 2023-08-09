@@ -18,15 +18,21 @@ describe('Primer conjunto de casos de prueba',function()
         /*cy.get('.react-select')
             .contains('IDENTIFICACIÓN TRIBUTARIA') // Encuentra la opción con el texto 'CEDULA'
             .click(); // Haz clic en la opción 'CEDULA'*/
-        cy.get('.form-control').type('1078747567')
+        cy.get('.form-control').type('1144105898')
 
         cy.get('#producto').should('be.visible').click(); 
         cy.get('.react-select').contains('CARGA').click(); 
         cy.get('#bottom-navigation-bar').click();
+
+
+        cy.get('.modal-footer .btn')
+        cy.contains('ACEPTAR').click();
    
        cy.get('#formInformationClient .form-control').should('be.visible')// Obtener todos los elementos del conjunto
         .eq(3) // Seleccionar el primer elemento del conjunto (cambia el índice según sea necesario)
         .type('Unas'); // Aplicar cy.type() al elemento seleccionado
+
+
 
         cy.get('#bottom-navigation-bar .simple-icon-arrow-right').last().click();   
 
@@ -60,40 +66,41 @@ describe('Primer conjunto de casos de prueba',function()
         
             //SECCION DE CONTACTO/NEGOCIO
 
-        cy.get('.form-group').should('be.visible')
-        .eq(0).type('3182152128');
+         cy.get('#celular').type('3182152128');
+
+        cy.get('[name="solicitud_negocio.celular"]').type('3182152120');
+
+        cy.get('.form-group').eq(4).type('MEDELLIN')
+        cy.get('div[id^="react-select-"]').click()
+        .wait(2000);
+
+        cy.get('.form-group').eq(5).type('CALASANZ PARTE ALTA - BARRIO')
+        cy.get('div[id^="react-select-"]')
+       .click()
+       .wait(2000);
+
+         //Dirección
+         cy.get('.quit-padding-select-address .form-control').eq(0)
+         .select('VEREDA')
+         cy.get('#direccionUno').type('SAN CARLOS').click();
 
         cy.get('.form-group').should('be.visible')
-        .eq(3).type('3182152120');
+        .eq(8).type('AGRICULTOR').click();
 
-         cy.get('.form-group').should('be.visible')
-         .eq(4).type('MEDELLIN')
-         .get('#react-select-20-option-0').click();
-
-        cy.get('.form-group').should('be.visible')
-        .eq(5).type('MONTANITA')
-        .get('#react-select-21-option-0').click();
-
-        cy.get('.input-group').eq(0)
-        .find('.quit-padding-select-address .form-control')
-        .select('VEREDA')
-        cy.get('.quit-padding-input-address').type('SAN CARLOS').click();
-
-        cy.get('.form-group').should('be.visible')
-        .eq(7).type('AGRICULTOR').click();
 
         cy.get('#bottom-navigation-bar .simple-icon-arrow-right').last().click();  
 
         //SECCION DE DOCUMENTOS
 
+
+
         cy.get('#solicitud_tipo_documento')
-        .find('.list__value-container')
         .type('SOLICITUD DE CRÉDITO') 
-        .get('#react-select-22-option-0').click(); 
+        cy.get('div[id^="react-select-"]').click()
 
         cy.get('.form-control').attachFile('Document.pdf');
         cy.get('.button-add').type('AGREGAR').click();
-        cy.wait(4000);
+        cy.wait(2000);
         
         cy.get('#solicitud_tipo_documento')
         .find('.list__value-container')
@@ -103,17 +110,22 @@ describe('Primer conjunto de casos de prueba',function()
         //cargar un archivo de forma manual porque el pdf se carga dentro del proyecto
         cy.get('.form-control').attachFile('Document.pdf');
         cy.get('.button-add').type('AGREGAR').click();
-        cy.wait(4000);
+        cy.wait(2000);
 
         cy.get('#bottom-navigation-bar .simple-icon-arrow-left').click();  
-        cy.wait(4000);
+        cy.wait(2000);
         cy.get('#bottom-navigation-bar .simple-icon-arrow-right').click();  
-        cy.wait(4000);
+        cy.wait(2000);
         cy.get('#bottom-navigation-bar .simple-icon-arrow-right').click();  
-        cy.wait(1000);
+        cy.wait(2000);
 
-        cy.get('.modal-footer .btn').type('FINALIZAR').click();
+        cy.get('[name="codigo_ticket"]')
+        .type('0');
 
+
+        cy.get('.modal-footer .btn')
+        .contains('FINALIZAR')
+        .click();
 
         
     })
