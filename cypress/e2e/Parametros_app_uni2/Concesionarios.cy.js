@@ -40,7 +40,7 @@ describe('Primer conjunto',function()
 
         // crear concesionario
 
-        cy.get('.btn').click()         
+     /*   cy.get('.btn').click()         
         cy.focused().click()              
         cy.contains('NUEVO').click();
 
@@ -72,7 +72,7 @@ describe('Primer conjunto',function()
         // select de razon social
         cy.get('.form-group').eq(4).click();
         cy.get('.react-select')
-        .contains('NT 901239039 - SERVIMOTOS DEL CAUC').click(); 
+        .contains('NIT 901239039 - SERVIMOTOS DEL CAUC').click(); 
 
         //Dirección
         cy.get('.quit-padding-select-address .form-control').eq(0)
@@ -81,6 +81,61 @@ describe('Primer conjunto',function()
 
         cy.get('.btn')       
         cy.contains('GUARDAR').click()   
+
+        cy.wait(5000);
+
+        // Editar concesionario
+
+
+        cy.get('.dropdown')       
+        cy.contains('OPCIONES').click()  
+
+        cy.get('.dropdown-item')       
+        cy.contains('EDITAR').click()  
+
+
+      //npm install @faker-js/faker --save-dev -- nombres random
+        cy.get('#form-concesionario')
+        .find('[name="name"]')
+        .type(faker.name.firstName()); 
+
+
+       //listado de ciudades        
+        cy.get('.form-group #ciudad').click(); 
+        cy.get('.react-select')
+        .find('.list__menu')
+        .contains('MEDELLIN').click(); 
+
+        // select de razon social
+        cy.get('.form-group').eq(4).click();
+        cy.get('.react-select')
+        .contains('NIT 901239039 - SERVIMOTOS DEL CAUC').click(); 
+
+        //Dirección
+        cy.get('.quit-padding-select-address .form-control').eq(0)
+        .select('VEREDA')
+        cy.get('#direccionUno').type('SAN CARLOS').click();
+
+        cy.get('.btn')       
+        cy.contains('GUARDAR').click()   */
+
+
+         //inhabilitar Concesionario 
+        cy.wait(4000)
+
+        cy.get('.dropdown')       
+        cy.contains('OPCIONES').click()  
+
+        
+        cy.get('.btn')       
+        cy.contains('DESHABILITAR').click()  
+
+        cy.wait(4000)
+
+        cy.get('.swal2-popup .swal2-actions  .swal2-confirm .dropdown-item>') 
+        cy.contains('DESHABILITAR')  
+        .click();  
+
     })
  })
  

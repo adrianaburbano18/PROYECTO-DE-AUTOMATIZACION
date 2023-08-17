@@ -68,7 +68,7 @@ describe('Primer conjunto',function()
         .contains('RECHAZAR')
         .click();
 
-        it('DESISIR SOLICITUD', function(){
+      
 
             cy.get('.nav-item .nav-link')
             cy.contains('EN PROCESO').click();
@@ -114,7 +114,7 @@ describe('Primer conjunto',function()
             .contains('DESISTIR')
             .click();
 
-        })
+     
     
     })
  })

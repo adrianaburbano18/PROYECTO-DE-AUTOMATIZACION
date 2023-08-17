@@ -4,7 +4,8 @@
   "description": "primer proyecto de ccypress",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node_modules\\.bin\\cypress run",
+    "testChrome": "npm run test -- --browser chrome",
     "cypress-dashboard-run": "npx cypress run --browser chrome --headed --record --key 55935b63-57c5-4569-9acf-c2858f4df01f",
     "browser": "chrome"
   },
@@ -14,10 +15,10 @@
     "@faker-js/faker": "^8.0.2",
     "cypress": "^10.3.0",
     "cypress-cucumber-preprocessor": "^4.3.1",
-    "cypress-file-upload": "^5.0.8"
+    "cypress-file-upload": "^5.0.8",
+    "faker": "^6.6.6"
   },
-  "cypress-cucumber-preprocessor":{
-  "nomGlobalStepDeFinitions":true
+  "cypress-cucumber-preprocessor": {
+    "nomGlobalStepDeFinitions": true
   }
-
 }
