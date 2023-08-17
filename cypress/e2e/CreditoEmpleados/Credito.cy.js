@@ -98,9 +98,20 @@ cy.get('div[id^="react-select-"]').click();
         cy.get('#direccionUno').type('SAN CARLOS').click();
 
 
-        cy.get('#celular')
-        cy.get('[name="celular"]')
-        .type('3182152100');
+
+        
+        function generarcelular() {
+          let cedula = '31';
+          for (let i = 0; i < 9; i++) {
+            cedula += Math.floor(Math.random() * 10);
+          }
+          return cedula;
+        }
+     
+      for (let i = 0; i < 1; i++) { // Realiza la prueba 5 veces con cédulas aleatorias
+          const cedulaAleatoria = generarcelular();
+          cy.get('[name="celular"]').type(cedulaAleatoria); 
+        }
 
 
 
