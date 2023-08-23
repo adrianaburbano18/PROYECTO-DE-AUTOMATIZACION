@@ -40,7 +40,7 @@ describe('Primer conjunto',function()
 
         // crear concesionario
 
-     /*   cy.get('.btn').click()         
+        cy.get('.btn').click()         
         cy.focused().click()              
         cy.contains('NUEVO').click();
 
@@ -72,7 +72,7 @@ describe('Primer conjunto',function()
         // select de razon social
         cy.get('.form-group').eq(4).click();
         cy.get('.react-select')
-        .contains('NIT 901239039 - SERVIMOTOS DEL CAUC').click(); 
+        .contains('CC 2898866088 - V8SZ_LUAXXXXX MOTO').click(); 
 
         //Dirección
         cy.get('.quit-padding-select-address .form-control').eq(0)
@@ -109,7 +109,7 @@ describe('Primer conjunto',function()
         // select de razon social
         cy.get('.form-group').eq(4).click();
         cy.get('.react-select')
-        .contains('NIT 901239039 - SERVIMOTOS DEL CAUC').click(); 
+        .contains('CC 2898866088 - V8SZ_LUAXXXXX MOTO').click(); 
 
         //Dirección
         cy.get('.quit-padding-select-address .form-control').eq(0)
@@ -117,7 +117,7 @@ describe('Primer conjunto',function()
         cy.get('#direccionUno').type('SAN CARLOS').click();
 
         cy.get('.btn')       
-        cy.contains('GUARDAR').click()   */
+        cy.contains('GUARDAR').click()   
 
 
          //inhabilitar Concesionario 
@@ -132,9 +132,16 @@ describe('Primer conjunto',function()
 
         cy.wait(4000)
 
-        cy.get('.swal2-popup .swal2-actions  .swal2-confirm .dropdown-item>') 
-        cy.contains('DESHABILITAR')  
-        .click();  
+        cy.get('.swal2-container .swal2-popup .swal2-actions .swal2-confirm')
+        .contains('DESHABILITAR')
+        .click();
+
+        cy.wait(2000);
+
+        cy.get('.swal2-actions .swal2-confirm')
+        .contains('ACEPTAR')
+        .click();
+  
 
     })
  })

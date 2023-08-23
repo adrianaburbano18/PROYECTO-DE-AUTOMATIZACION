@@ -99,6 +99,8 @@ describe('Primer conjunto',function()
     
             cy.get('#oficinas').type('PALMIRA')
             cy.get('div[id^="react-select-"]').click()
+
+            cy.wait(2000);
     
             cy.get('#email_ejecutivo').type('BALANTA VARELA ELIAN FELIPE - ejecutivo024@uni2.com.co')
             cy.get('div[id^="react-select-"]').click()

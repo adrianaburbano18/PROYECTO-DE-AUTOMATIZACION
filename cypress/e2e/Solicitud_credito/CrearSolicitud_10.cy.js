@@ -23,15 +23,12 @@ describe('Primer conjunto de casos de prueba',function()
         cy.get('#producto').should('be.visible').click(); 
         cy.get('.react-select').contains('CARGA').click(); 
         cy.get('#bottom-navigation-bar').click();
+       
+        cy.wait(2000)
 
-
+   
         cy.get('.modal-footer .btn')
         cy.contains('ACEPTAR').click();
-   
-       cy.get('#formInformationClient .form-control').should('be.visible')// Obtener todos los elementos del conjunto
-        .eq(3) // Seleccionar el primer elemento del conjunto (cambia el índice según sea necesario)
-        .type('Unas'); // Aplicar cy.type() al elemento seleccionado
-
 
 
         cy.get('#bottom-navigation-bar .simple-icon-arrow-right').last().click();   

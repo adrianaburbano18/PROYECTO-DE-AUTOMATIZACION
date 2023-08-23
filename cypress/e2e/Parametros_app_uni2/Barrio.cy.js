@@ -38,9 +38,6 @@ describe('Primer conjunto',function()
         cy.get('.simple-icon-location-pin')
         .click();
     
-
-        cy.get('.form-group').eq(0).type('LA ARGENTINA')
-        cy.get('div[id^="react-select-"]').click()
  
         cy.wait(5000)
 
@@ -54,10 +51,8 @@ describe('Primer conjunto',function()
         cy.get('.modal-body .form-group').eq(1).type('BARRIO')
         cy.get('div[id^="react-select-"]').click()
 
-        cy.get('.modal-body .form-group').eq(2)
-        .wait(2000)
-        .type('LA ARGENTINA -')
-        .wait(2000)
+        cy.get('.modal-body .form-group').eq(2).click()
+        .type('SAN ANDRES DE CUERQUIA');
         cy.get('div[id^="react-select-"]').click()
 
         cy.get('.btn')       

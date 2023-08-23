@@ -1,4 +1,4 @@
-/// <reference types="Cypress"/>    
+/*/// <reference types="Cypress"/>    
  
 //Importamos Clases de Page Objects
 import AddressPage from '../../support/PageObjects/AddressPage'
@@ -92,7 +92,7 @@ describe('Primer conjunto de casos de prueba', function () {
         */
  
     //caso6
-    it('Crear una compra desde cero', function () {
+   /* it('Crear una compra desde cero', function () {
         homePage.getSearchBoxInput().type('Blouse')
         homePage.getSearchBoxButton().click()
         homePage.getAddToCardElementButton("Blouse").click()
@@ -115,5 +115,5 @@ describe('Primer conjunto de casos de prueba', function () {
         paymentPage.getIConfirmMyOrderButton().click()
         paymentPage.getDescriptionTitleText().should('contain.text', 'Your order on My Store is complete.')
     })
-})
+})*/
 

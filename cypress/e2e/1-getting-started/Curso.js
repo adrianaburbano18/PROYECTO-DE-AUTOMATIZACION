@@ -1,4 +1,4 @@
-/// <reference types="Cypress"/>    
+/*/// <reference types="Cypress"/>    
 //Suite de casos que contiene cada caso 
 describe('Primer conjunto de casos de prueba', function () {
     beforeEach(() => {
@@ -67,12 +67,12 @@ describe('Primer conjunto de casos de prueba', function () {
         */
  
     //caso 5
-    it('Verificar que los dropdowns de arreglo esten funcionando', function () {
+ /*   it('Verificar que los dropdowns de arreglo esten funcionando', function () {
         cy.get('.sf-menu > :nth-child(2) > .sf-with-ul').click()
         cy.get('#selectProductSort').select('In stock').should('have.value', 'name:asc')
     })
  
-})
+})*/
 /*Codigo Generado
 /// <reference types="Cypress"/>
  

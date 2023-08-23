@@ -2,14 +2,14 @@ import'cypress-file-upload';
 import {faker} from "@faker-js/faker";
 
 
-describe('Primer conjunto de casos de prueba',function()
+describe('GESTION HUMANA',function()
 {
     this.beforeEach(() =>{
         //ingresar a la pagina web
         cy.visit("https://qa-app.uni2.com.co")
     })
 
-    it('LOGUIN ALIADO DIGITAL', function(){
+    it('EMPEADOS', function(){
         cy.get('input').first().type('latorres@uni2.com.co')
         cy.get('input').last().type('finamiga2021')
         cy.get('.label').click() 
@@ -80,12 +80,9 @@ describe('Primer conjunto de casos de prueba',function()
 
       //CONTACTO
             
-
-
-cy.contains('label', 'Ciudad').click().type('SAN ANDRES DE CUERQUIA');
-cy.wait(2000); 
-cy.get('div[id^="react-select-"]').click();
-
+      cy.contains('label', 'Ciudad').click().type('SAN ANDRES DE CUERQUIA');
+      cy.wait(2000); 
+      cy.get('div[id^="react-select-"]').click();
 
       cy.contains('label', 'Barrio contacto').click()
       .type('PALO BLANCO');
@@ -114,15 +111,114 @@ cy.get('div[id^="react-select-"]').click();
         }
 
 
-
         cy.get('.btn')
         .contains('GUARDAR').click();
 
-        cy.get('#bottom-navigation-bar .simple-icon-arrow-right').last().click();   
+      cy.get('#bottom-navigation-bar .simple-icon-arrow-right').last().click();   
+
+      cy.wait(200)
 
       cy.get('#empleado_credito_producto')
       .type('EDUCATIVO')
       cy.get('div[id^="react-select-"]').click();
+
+
+      cy.get('#empleado_credito_categoria_educativa')
+      .type('DIPLOMADO')
+      cy.get('div[id^="react-select-"]').click();
+
+      cy.get('[name="monto_aprobado"]')
+      .type('2000000')
+
+      cy.get('#plazo')
+      .type('12 meses')
+      cy.get('div[id^="react-select-"]').click();
+
+      cy.get('[name="numero_cuenta_bancaria"]')
+      .type('2000000')
+
+      cy.get('#banco')
+      .type('BANCO SANTANDER DE NEGOCIOS COLOMBIA S.A')
+      cy.get('div[id^="react-select-"]').click();
+
+      cy.contains('label', 'Ciudad').click().type('SAN ANDRES DE CUERQUIA');
+      cy.wait(2000); 
+      cy.get('div[id^="react-select-"]').click();
+      
+
+      
+      cy.get('#tipo_cuenta')
+      .type('AHORRO')
+      cy.get('div[id^="react-select-"]').click();
+
+            
+      cy.get('#tipo_credito')
+      .type('REFINANCIACION')
+      cy.get('div[id^="react-select-"]').click();
+
+      cy.get('[name="dia_de_pago"]')
+      .type('20')
+
+      cy.get('#empleado_credito_sede')
+      .type('CORABASTOS')
+      cy.get('div[id^="react-select-"]').click();
+
+      cy.get('#empleado_credito_area')
+      .type('DESARROLLO SOCIAL')
+      cy.get('div[id^="react-select-"]').click();
+
+      cy.get('[name="aprobado_por"]')
+      .type('OBSERVACIÓN')
+
+      cy.get('#tipo_garantia')
+      .type('GARANTIAS COMUNITARIAS')
+      cy.get('div[id^="react-select-"]').click();
+
+
+      
+      cy.get('#bottom-navigation-bar .simple-icon-arrow-right').last().click();   
+
+      cy.get('#empleado_credito_tipo_documento')
+      .type('CEDULA') 
+      cy.get('div[id^="react-select-"]').click()
+
+      cy.get('.form-control').attachFile('Document.pdf');
+      cy.get('.button-add').type('AGREGAR').click();
+      cy.wait(2000);
+      
+      cy.get('#empleado_credito_tipo_documento')
+      .type('SOLICITUD FIRMADA') 
+      cy.get('div[id^="react-select-"]').click()
+
+      cy.get('.form-control').attachFile('Document.pdf');
+      cy.get('.button-add').type('AGREGAR').click();
+      cy.wait(2000);
+      
+      cy.get('#empleado_credito_tipo_documento')
+      .type('SEGURO DE VIDA') 
+      cy.get('div[id^="react-select-"]').click()
+
+      cy.get('.form-control').attachFile('Document.pdf');
+      cy.get('.button-add').type('AGREGAR').click();
+      cy.wait(2000);
+     
+      cy.get('#bottom-navigation-bar .simple-icon-arrow-left').click();  
+      cy.wait(2000);
+      cy.get('#bottom-navigation-bar .simple-icon-arrow-right').click();  
+      cy.wait(2000);
+      cy.get('#bottom-navigation-bar .simple-icon-arrow-right').click();  
+      cy.wait(2000);
+
+      cy.get('.swal2-container .swal2-popup .swal2-actions .swal2-confirm')
+      .contains('ACEPTAR')
+      .click();
+      cy.wait(2000);
+      
+      cy.get('.swal2-actions .swal2-confirm')
+      .contains('ACEPTAR')
+      .click();
+
+
     })
  })
  
