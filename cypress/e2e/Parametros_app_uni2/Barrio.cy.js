@@ -52,7 +52,7 @@ describe('Primer conjunto',function()
         cy.get('div[id^="react-select-"]').click()
 
         cy.get('.modal-body .form-group').eq(2).click()
-        .type('SAN ANDRES DE CUERQUIA');
+        .type('SAN ANDRES DE CUERQU');
         cy.get('div[id^="react-select-"]').click()
 
         cy.get('.btn')       

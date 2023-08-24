@@ -54,7 +54,7 @@ describe('Primer conjunto',function()
         cy.get('#oficinas').type('PALMIRA')
         cy.get('div[id^="react-select-"]').click()
 
-        cy.get('#email_ejecutivo').type('BALANTA VARELA ELIAN FELIPE - ejecutivo024@uni2.com.co')
+        cy.get('#email_ejecutivo').type('ejecutivo024@uni2.com.co')
         cy.get('div[id^="react-select-"]').click()
 
         cy.get('#causal').type('MULTAS SUP. POLITICAS')
@@ -93,7 +93,7 @@ describe('Primer conjunto',function()
     
             //RECHAR SOLICITUD DE CRÉDITO
             cy.get('.font-weight-semibold')
-            .contains('RECHAZAR')
+            .contains('DESISTIR')
             .click();
     
     
@@ -102,7 +102,7 @@ describe('Primer conjunto',function()
 
             cy.wait(2000);
     
-            cy.get('#email_ejecutivo').type('BALANTA VARELA ELIAN FELIPE - ejecutivo024@uni2.com.co')
+            cy.get('#email_ejecutivo').type('ejecutivo024@uni2.com.co')
             cy.get('div[id^="react-select-"]').click()
     
             cy.get('#causal').type('NO ESTA INTERESADO')
