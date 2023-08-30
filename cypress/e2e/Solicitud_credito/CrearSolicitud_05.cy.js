@@ -9,7 +9,7 @@ describe('Primer conjunto de casos de prueba',function()
     })
 
     it('LOGUIN ALIADO DIGITAL', function(){
-        cy.get('input').first().type('ALEJO.ALVAREZ98@hotmail.com')
+        cy.get('input').first().type('test@uni2.com.co')
         cy.get('input').last().type('finamiga2021')
         cy.get('.label').click() 
         cy.wait(4000);
@@ -70,6 +70,7 @@ describe('Primer conjunto de casos de prueba',function()
         cy.get('[name="solicitud_negocio.celular"]').type('3182152120');
 
         cy.get('.form-group').eq(4).type('MEDELLIN')
+        .type('MEDELLIN')
         cy.get('div[id^="react-select-"]').click()
         .wait(2000);
 
@@ -93,7 +94,7 @@ describe('Primer conjunto de casos de prueba',function()
         cy.get('.li_authorization_options').eq(3).click();
         cy.wait(1000);
 
-        const path = 'cara_foto_frontal.jpeg';
+        const path = 'cara_foto_frontal.jpeg'; 
         cy.get("input[name='inputFile_webcamPhoto']").attachFile(path);
 
         cy.wait(4000);

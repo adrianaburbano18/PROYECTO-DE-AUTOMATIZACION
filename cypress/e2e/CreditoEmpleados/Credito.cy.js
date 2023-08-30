@@ -1,3 +1,5 @@
+/// <reference types="Cypress"/>
+
 import'cypress-file-upload';
 import {faker} from "@faker-js/faker";
 
@@ -13,7 +15,8 @@ describe('GESTION HUMANA',function()
         cy.get('input').first().type('latorres@uni2.com.co')
         cy.get('input').last().type('finamiga2021')
         cy.get('.label').click() 
-        cy.wait(2000);
+
+        cy.wait(5000);
 
         cy.contains('NUEVO CRÉDITO').click()   
 
@@ -76,7 +79,7 @@ describe('GESTION HUMANA',function()
               
         cy.get('#bottom-navigation-bar .simple-icon-arrow-right').last().click();   
 
-        cy.wait(2000);
+        cy.wait(4000);
 
       //CONTACTO
             

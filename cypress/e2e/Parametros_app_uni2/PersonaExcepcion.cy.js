@@ -1,14 +1,14 @@
 import {faker} from "@faker-js/faker";
 
 
-describe('Primer conjunto',function()
+describe('Modulo parametros: Persona excepcion',function()
 {
     this.beforeEach(() =>{
         //ingresar a la pagina web
         cy.visit("https://qa-app.uni2.com.co")
     })
 
-    it('Aliado digital', function(){
+    it('Personas', function(){
         cy.get('input').first().type('eanaya@uni2.com.co')
         cy.get('input').last().type('finamiga2021')
         cy.get('.label').click(); 
@@ -59,31 +59,34 @@ describe('Primer conjunto',function()
        
         for (let i = 0; i < 1; i++) { // Realiza la prueba 5 veces con cédulas aleatorias
             const cedulaAleatoria = generarCedula();
-            cy.get('.form-group').should('be.visible').eq(1).type(cedulaAleatoria); 
+            cy.get('[name="numero_identificacion"]').should('be.visible').type(cedulaAleatoria); 
           }
 
-        cy.get('.form-group').eq(2).type(faker.name.firstName()); 
+        cy.get('[name="primer_nombre"]').type(faker.name.firstName()); 
 
-        cy.get('.form-group').eq(4).type(faker.name.firstName()); 
+        cy.get('[name="primer_apellido"]').type(faker.name.firstName()); 
 
-        cy.get('.form-group').eq(6).type('FEMENINO')
-        cy.get('div[id^="react-select-"]').click()
+        cy.get('#genero').type('FEMENINO')
+        cy.get('div[id^="react-select-"]').click();
 
         cy.get('.form-group').eq(7).type('LA ARGENTINA')
+        .type('LA ARGENTINA')
         cy.get('div[id^="react-select-"]').click()
 
-        // Obtén la fecha con el formato "YYYY-MM-DD"
-        const fechaexpedicióndocumento = '2020-07-07';
-        // Encuentra el campo de fecha y escribe la fecha válida
-        cy.get('.form-group').eq(8).type(fechaexpedicióndocumento); // Reemplaza '#campo_fecha' con el selector correcto del campo de fecha
-
+         // Obtén la fecha con el formato "YYYY-MM-DD"
+          const fechaexpedicióndocumento = '2020-07-07';
+          // Encuentra el campo de fecha y escribe la fecha válida
+           cy.get('.form-group').eq(8).type(fechaexpedicióndocumento); // Reemplaza '#campo_fecha' con el selector correcto del campo de fecha
+      
 
         cy.get('.form-group').eq(9).type('LA ARGENTINA')
+        .type('LA ARGENTINA')
         cy.get('div[id^="react-select-"]').click()
    
+      
         const fechanacimiento = '1999-07-07';
         cy.get('.form-group').eq(10).type(fechanacimiento); // Reemplaza '#campo_fecha' con el selector correcto del campo de fecha
-        
+       
         cy.get('.btn')       
         cy.contains('GUARDAR').click()  
 
@@ -91,7 +94,7 @@ describe('Primer conjunto',function()
 
        //Crear exepción 
         cy.get('.btn')       
-        cy.contains('AGREGAR').click()  
+        cy.contains('AGREGAR').click()    
 
         cy.get('.form-group').eq(3).type('SIMIT')
         cy.get('div[id^="react-select-"]').click()

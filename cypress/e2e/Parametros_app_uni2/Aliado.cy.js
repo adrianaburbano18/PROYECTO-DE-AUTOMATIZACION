@@ -1,17 +1,20 @@
 import'cypress-file-upload';
 import {faker} from "@faker-js/faker";
 
-describe('Primer conjunto',function()
+describe('Modulo parametros: Aliado',function()
 {
     this.beforeEach(() =>{
         //ingresar a la pagina web
         cy.visit("https://qa-app.uni2.com.co")
     })
 
-    it('Aliado digital', function(){
-        cy.get('input').first().type('mesa009@uni2.com.co')
-        cy.get('input').last().type('finamiga2021')
-        cy.get('.label').click(); 
+    it('Formulario de Aliado', function(){
+      // Introducir las credenciales de inicio de sesión
+      cy.get('[name="email"]').type('eanaya@uni2.com.co')
+      cy.get('[name="password"]').type('finamiga2021')
+   
+       // Hacer clic en el botón de inicio de sesión
+        cy.get('.label').contains('Ingresar').click(); 
 
         cy.wait(4000);
   
@@ -26,15 +29,15 @@ describe('Primer conjunto',function()
 
        // FORMULARIO DE CREACIÓN DE UN NUEVO ALIADO     
  
-        cy.get('.btn').click()          // Click on button
+        cy.get('.btn').click()          
         cy.focused().click()              // Click on el with focus
-        cy.contains('NUEVO').click()    // Click on first el containing 'Welcome' 
+        cy.contains('NUEVO').click()    
 
 
        //nombres random
-      cy.get('.form-control').eq(1).type(faker.name.firstName()); 
+      cy.get('[name="first_name"]').type(faker.name.firstName()); 
 
-      cy.get('.form-control').eq(2).type(faker.name.firstName()); 
+      cy.get('[name="last_name"]').type(faker.name.firstName()); 
   
         function generarCedula() {
             // Generar una cédula aleatoria de 9 dígitos
@@ -47,18 +50,29 @@ describe('Primer conjunto',function()
        
         for (let i = 0; i < 1; i++) { // Realiza la prueba 5 veces con cédulas aleatorias
             const cedulaAleatoria = generarCedula();
-            cy.get('.form-control').should('be.visible').eq(3).type(cedulaAleatoria); // Reemplaza '#campo_cedula' con el selector correcto del campo
+            cy.get('[name="identification_number"]').should('be.visible').type(cedulaAleatoria); // Reemplaza '#campo_cedula' con el selector correcto del campo
             // Continuar con el resto de la prueba o realizar aserciones según sea necesario
             // Por ejemplo, hacer clic en un botón o verificar que la cédula se haya ingresado correctamente
           }
-        cy.get('.form-control').should('be.visible')
-        .eq(4).type('3182152128');
 
+        function generarcelular() {
+          let cedula = '31';
+          for (let i = 0; i < 9; i++) {
+            cedula += Math.floor(Math.random() * 10);
+          }
+          return cedula;
+        }
+     
+      for (let i = 0; i < 1; i++) { // celular aleatorio
+          const cedulaAleatoria = generarcelular();
+          cy.get('#celular').type(cedulaAleatoria); 
+        }
 
         const randomEmail = Math.random().toString(36).substring(2,15)+"@gmail.com"
-        cy.get('.form-control').eq(5).type(randomEmail);
+        cy.get('[name="email"]').type(randomEmail);
 
-        cy.get('.form-group .css-1115wtz-control').type('HONDA SUPERMOTOS NEIVA')
+        cy.get('.form-group .css-1115wtz-control')
+        .type('HONDA SUPERMOTOS NEIVA')
         cy.get('div[id^="react-select-"]').click()
         cy.get('.css-1rhbuit-multiValue').should('contain.text', 'HONDA SUPERMOTOS NEIVA')
 
@@ -78,14 +92,26 @@ describe('Primer conjunto',function()
          
         cy.wait(1000);       
 
-       cy.get('.form-control').eq(1).type(faker.name.firstName().substring(2,3)); 
+        cy.get('[name="first_name"]').type(faker.name.firstName().substring(2,3)); 
+
+        function generarcelular() {
+          let cedula = '31';
+          for (let i = 0; i < 9; i++) {
+            cedula += Math.floor(Math.random() * 10);
+          }
+          return cedula;
+        }
+     
+      for (let i = 0; i < 1; i++) { // celular aleatorio
+          const cedulaAleatoria = generarcelular();
+          cy.get('#celular').type(cedulaAleatoria); 
+        }
+
         
        cy.wait(1000);       
      
         cy.get('.btn')       
         cy.contains('GUARDAR').click() 
-
-
 
     })
  })

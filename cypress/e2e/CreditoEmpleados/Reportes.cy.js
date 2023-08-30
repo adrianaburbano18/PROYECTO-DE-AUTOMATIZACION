@@ -13,7 +13,8 @@ describe('Reportes',function()
         cy.get('input').first().type('latorres@uni2.com.co')
         cy.get('input').last().type('finamiga2021')
         cy.get('.label').click() 
-        cy.wait(2000);
+
+        cy.wait(5000);
 
         //MENU
         cy.get('.menu-button')
