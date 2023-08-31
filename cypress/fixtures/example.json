@@ -1,5 +1,10 @@
 {
-  "name": "Using fixtures to represent data",
+  "number": [
+    "26527712",
+    "1144105898",
+    "26527712"
+  ],
   "email": "hello@cypress.io",
-  "body": "Fixtures are a great way to mock data for responses to routes"
+  "img": "cypress/fixtures/cara_foto_frontal.jpeg",
+  "tipotransaccion": "CORRIENTE"
 }

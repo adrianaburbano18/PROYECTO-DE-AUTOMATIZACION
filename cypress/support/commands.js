@@ -23,3 +23,23 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+
+Cypress.Commands.add("agregarElementoAlCarrito", () => {
+    
+  function generarCedula() {
+    let cedula = '';
+    for (let i = 0; i < 9; i++) {
+      cedula += Math.floor(Math.random() * 10);
+    }
+    return cedula;
+  }
+
+  for (let i = 0; i < 1; i++) { // Realiza la prueba 5 veces con cédulas aleatorias
+    const cedulaAleatoria = generarCedula();
+    cy.get('[name="numero_identificacion"]').type(cedulaAleatoria);
+  }
+
+
+
+})
