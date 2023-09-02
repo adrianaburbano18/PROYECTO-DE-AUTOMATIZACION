@@ -2,6 +2,14 @@
 import 'cypress-file-upload';
 
 describe('Primer conjunto de casos de prueba', function () {
+
+    before(function () {
+        cy.fixture('example').then(function (datos) {
+            this.datos = datos
+        })
+
+    })
+
     this.beforeEach(() => {
         //ingresar a la pagina web
         cy.visit("https://qa-app.uni2.com.co")
@@ -14,10 +22,19 @@ describe('Primer conjunto de casos de prueba', function () {
         cy.contains('NUEVA SOLICITUD').click()
         //Select de TIpo identificación 
         cy.get('#tipo_identificacion').should('be.visible').click(); // Abre el componente de selección
-        /*cy.get('.react-select')
-            .contains('IDENTIFICACIÓN TRIBUTARIA') // Encuentra la opción con el texto 'CEDULA'
-            .click(); // Haz clic en la opción 'CEDULA'*/
-        cy.get('.form-control').type('1144105898')
+ 
+     
+     //cy.get('.form-control').type('1144105898')
+
+
+        // Generate a random index within the length of the array
+        const randomIndex = Math.floor(Math.random() * this.datos.number.length);
+
+        // Use the random index to select an identification number
+        const selectedNumber = this.datos.number[randomIndex];
+
+        // Type the selected identification number
+        cy.get('[name="numero_identificacion"]').type(selectedNumber);
 
         cy.get('#producto').should('be.visible').click();
         cy.get('.react-select').contains('CARGA').click();
@@ -25,12 +42,15 @@ describe('Primer conjunto de casos de prueba', function () {
 
         cy.wait(2000)
 
+
         cy.get('.modal-footer .btn')
         cy.contains('ACEPTAR').click();
 
+
         cy.get('#bottom-navigation-bar .simple-icon-arrow-right').last().click();
 
-      //SECCION DE SOLICITUD DE CRÉDITO
+        //SECCION DE SOLICITUD DE CRÉDITO
+
         cy.get('#subproducto').click();
         cy.get('.react-select').contains('CULTIVA').click();
 
@@ -56,7 +76,9 @@ describe('Primer conjunto de casos de prueba', function () {
 
         cy.get('#bottom-navigation-bar .simple-icon-arrow-right').last().click();
 
+
         //SECCION DE CONTACTO/NEGOCIO
+
         cy.get('#celular').type('3182152128');
 
         cy.get('[name="solicitud_negocio.celular"]').type('3182152120');
@@ -78,9 +100,13 @@ describe('Primer conjunto de casos de prueba', function () {
         cy.get('.form-group').should('be.visible')
             .eq(8).type('AGRICULTOR').click();
 
+
         cy.get('#bottom-navigation-bar .simple-icon-arrow-right').last().click();
 
         //SECCION DE DOCUMENTOS
+
+
+
         cy.get('#solicitud_tipo_documento')
             .type('SOLICITUD DE CRÉDITO')
         cy.get('div[id^="react-select-"]').click()
@@ -109,9 +135,12 @@ describe('Primer conjunto de casos de prueba', function () {
         cy.get('[name="codigo_ticket"]')
             .type('0');
 
+
         cy.get('.modal-footer .btn')
             .contains('FINALIZAR')
             .click();
+
+
     })
 })
 
