@@ -5,7 +5,18 @@
     "1143878432",
     "10753989"
   ],
+  "producto": [
+    "CULTIVA",
+    "PROGRESA"
+  ],
   "email": "hello@cypress.io",
   "img": "cypress/fixtures/cara_foto_frontal.jpeg",
-  "tipotransaccion": "CORRIENTE"
+  "tipotransaccion": "CORRIENTE",
+  "Identificación": "IDENTIFICACIÓN TRIBUTARIA",
+  "UserCoordinador": "eanaya@uni2.com.co",
+  "UserContraseña": "finamiga2021",
+  "Concesionario": "EXITO AKT LAURELES MEDELLIN",
+  "City": "SAN ANDRES DE CUERQUIA"
+
+  
 }

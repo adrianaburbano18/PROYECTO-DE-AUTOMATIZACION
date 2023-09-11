@@ -2,10 +2,10 @@
 import { faker } from "@faker-js/faker";
 
 describe('Reportes', function () {
-    this.beforeEach(() => {
-        //ingresar a la pagina web
-        cy.visit("https://qa-app.uni2.com.co")
-    })
+
+    beforeEach(() => {
+        cy.visit(Cypress.env('url'));
+      });
 
     it('GENERAR REPORTE GESTION HUMANA', function () {
         cy.get('input').first().type('latorres@uni2.com.co')

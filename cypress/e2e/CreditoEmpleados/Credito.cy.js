@@ -5,10 +5,11 @@ import { faker } from "@faker-js/faker";
 
 
 describe('GESTION HUMANA', function () {
-  this.beforeEach(() => {
-    //ingresar a la pagina web
-    cy.visit("https://qa-app.uni2.com.co")
-  })
+
+
+  beforeEach(() => {
+    cy.visit(Cypress.env('url'));
+  });
 
   it('EMPEADOS', function () {
     cy.get('input').first().type('latorres@uni2.com.co')
@@ -46,7 +47,9 @@ describe('GESTION HUMANA', function () {
 
 
     cy.contains('label', 'Lugar expedición documento').click()
-      .type('SAN ANDRES DE CUERQUIA');
+      .type('SAN ANDRES DE CUERQUIA')
+      .type('{selectall}{backspace}')
+      .type('SAN ANDRES DE CUERQUIA')
     cy.get('div[id^="react-select-"]').click()
 
 
@@ -69,7 +72,9 @@ describe('GESTION HUMANA', function () {
     cy.get('input[name="fecha_expedicion_documento"]').type(formattedDates);
 
     cy.contains('label', 'Lugar nacimiento').click()
-      .type('SAN ANDRES DE CUERQUIA');
+      .type('SAN ANDRES DE CUERQUIA')
+      .type('{selectall}{backspace}')
+      .type('SAN ANDRES DE CUERQUIA')
     cy.get('div[id^="react-select-"]').click()
 
     const fechanacimiento = '1999-07-07';

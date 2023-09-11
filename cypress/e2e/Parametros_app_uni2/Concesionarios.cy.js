@@ -2,40 +2,26 @@
 import { faker } from "@faker-js/faker";
 
 describe('Modulo parametros: Concesionarios', function () {
-  this.beforeEach(() => {
-    //ingresar a la pagina web
-    cy.visit("https://qa-app.uni2.com.co")
-  })
+
+  beforeEach(() => {
+    cy.visit(Cypress.env('url'));
+  });
 
   it('Concesionarios', function () {
-    // Introducir las credenciales de inicio de sesión
+
     cy.get('[name="email"]').type('eanaya@uni2.com.co')
     cy.get('[name="password"]').type('finamiga2021')
-
-    // Hacer clic en el botón de inicio de sesión
     cy.get('.label').contains('Ingresar').click();
 
     cy.wait(1000);
 
-    cy.get('.name')
-      .click();
-
-    cy.get('.dropdown-item')
-    cy.contains('Cambiar rol').click()
-
-    cy.get('.form-group').click();
-    cy.get('.react-select').contains('COORDINADOR MESA DE AYUDA').click();
-
-    cy.get('.btn')
-    cy.contains('CAMBIAR').click()
+    cy.CambiarRol();
 
     cy.wait(1000);
 
-    cy.get('.menu-button')
-      .click();
+    cy.navegarParametros();
 
-    cy.get('.simple-icon-settings')
-      .click();
+
 
     cy.get('.iconsminds-office')
       .click();
@@ -98,15 +84,16 @@ describe('Modulo parametros: Concesionarios', function () {
       .find('[name="name"]')
       .type(faker.name.firstName());
 
+
+    // select de razon social
+    cy.get('#form-concesionario .form-group').eq(4).click()
+      .contains('NIT 4487611260 - 7N60_GRUXXXXXO SAS').click()
+
+
     //listado de ciudades        
     cy.get('#form-concesionario #ciudad').click()
       .find('.list__menu')
       .contains('MEDELLIN').click();
-
-    // select de razon social
-    cy.get('#form-concesionario .form-group').eq(4).click();
-    cy.get('div[id^="react-select-"]')
-      .contains('CC 4784611627 - 7YCN_MOTXXXXXNDO S').click();
 
     //Dirección
     cy.get('.quit-padding-select-address .form-control[name="direccion_select"]')

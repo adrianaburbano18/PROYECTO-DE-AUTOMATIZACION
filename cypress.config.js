@@ -15,5 +15,8 @@ module.exports = defineConfig({
   runMode:1,
   openMode:1
   }*/
+  env: {
+    url: "https://qa-app.uni2.com.co",
+  },
  
 });

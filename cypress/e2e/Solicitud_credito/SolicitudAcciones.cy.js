@@ -2,8 +2,10 @@ import 'cypress-file-upload';
 
 
 describe('Acciones de la solicitud de credito', function () {
+
+
     this.beforeEach(() => {
-        cy.visit("https://qa-app.uni2.com.co")
+        cy.visit(Cypress.env('url'));
 
         cy.get('input').first().type('mesa009@uni2.com.co')
         cy.get('input').last().type('finamiga2021')

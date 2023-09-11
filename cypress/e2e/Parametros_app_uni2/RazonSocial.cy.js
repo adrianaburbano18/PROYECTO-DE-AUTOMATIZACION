@@ -3,10 +3,10 @@
 import { faker } from "@faker-js/faker";
 
 describe('Modulo parametros: Barrios', function () {
-  this.beforeEach(() => {
-    //ingresar a la pagina web
-    cy.visit("https://qa-app.uni2.com.co")
-  })
+
+  beforeEach(() => {
+    cy.visit(Cypress.env('url'));
+  });
 
   it('Barrios', function () {
 
@@ -70,6 +70,22 @@ describe('Modulo parametros: Barrios', function () {
       .type('FINANCIERA JURISCOOP S.A. COMPAÑIA DE FINANCIAMIENTO')
     cy.get('div[id^="react-select-"]').click()
 
+    function generarCedula() {
+      // Generar una cédula aleatoria de 9 dígitos
+      let cedula = '';
+      for (let i = 0; i < 9; i++) {
+        cedula += Math.floor(Math.random() * 10);
+      }
+      return cedula;
+    }
+
+    for (let i = 0; i < 1; i++) { // Realiza la prueba 5 veces con cédulas aleatorias
+      const cedulaAleatoria = generarCedula();
+      cy.get('[name="numero_cuenta"]').should('be.visible').type(cedulaAleatoria); // Reemplaza '#campo_cedula' con el selector correcto del campo
+      // Continuar con el resto de la prueba o realizar aserciones según sea necesario
+      // Por ejemplo, hacer clic en un botón o verificar que la cédula se haya ingresado correctamente
+    }
+
     cy.get('[name="numero_cuenta"]')
       .type('12313213')
 
@@ -88,7 +104,7 @@ describe('Modulo parametros: Barrios', function () {
 
   cy.wait(1000);
 
-  cy.get('[name="first_name"]').type(faker.name.firstName().substring(2, 3));
+  cy.get('[name="name"]').type(faker.name.firstName().substring(2, 3));
 
   cy.get('.btn')
   cy.contains('GUARDAR').click()

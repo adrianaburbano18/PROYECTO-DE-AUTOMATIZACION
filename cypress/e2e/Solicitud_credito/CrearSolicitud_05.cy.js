@@ -2,10 +2,10 @@ import 'cypress-file-upload';
 
 
 describe('Primer conjunto de casos de prueba', function () {
-  this.beforeEach(() => {
-    //ingresar a la pagina web
-    cy.visit("https://qa-app.uni2.com.co")
-  })
+
+  beforeEach(() => {
+    cy.visit(Cypress.env('url'));
+  });
 
   it('LOGUIN ALIADO DIGITAL', function () {
     cy.get('input').first().type('test@uni2.com.co')
@@ -21,7 +21,7 @@ describe('Primer conjunto de casos de prueba', function () {
     cy.get('.form-control').type('1144105898')
 
     cy.get('#producto').should('be.visible')
-      .type('MOTOCARRO')
+      .type('CARGA')
     cy.get('div[id^="react-select-"]').click();
 
     cy.get('#bottom-navigation-bar').click();
@@ -61,6 +61,8 @@ describe('Primer conjunto de casos de prueba', function () {
     cy.get('div[id^="react-select-"]').click();
 
     cy.get('#bottom-navigation-bar .btn').last().click();
+
+    cy.wait(2000)
 
     //SECCION DE CONTACTO/NEGOCIO
 

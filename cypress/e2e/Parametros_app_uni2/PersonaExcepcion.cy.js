@@ -2,10 +2,10 @@ import { faker } from "@faker-js/faker";
 
 
 describe('Modulo parametros: Persona excepcion', function () {
-  this.beforeEach(() => {
-    //ingresar a la pagina web
-    cy.visit("https://qa-app.uni2.com.co")
-  })
+ 
+  beforeEach(() => {
+    cy.visit(Cypress.env('url'));
+  });
 
   it('Personas', function () {
     cy.get('input').first().type('eanaya@uni2.com.co')
