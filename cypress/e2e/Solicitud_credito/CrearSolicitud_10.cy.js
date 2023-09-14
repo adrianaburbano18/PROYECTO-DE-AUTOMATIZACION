@@ -4,22 +4,23 @@ import { faker } from "@faker-js/faker";
 /// <reference types="Cypress"/>   
 
 
-describe('Primer conjunto de casos de prueba', function () {
-
-    before(function () {
-        cy.fixture('example').then(function (datos) {
-            this.datos = datos
-        })
-    })
+describe('Solicitud Mesa de Ayuda', function () {
 
     beforeEach(() => {
+        cy.fixture('example').then(function (datos) {
+          this.datos = datos
+        })
+    
         cy.visit(Cypress.env('url'));
+        cy.wait(2000)
       });
 
     it('Login principal', function () {
-        cy.get('input').first().type('mesa009@uni2.com.co')
-        cy.get('input').last().type('finamiga2021')
-        cy.get('.label').click()
+    
+        cy.get('[name="email"]').type('mesa009@uni2.com.co')
+        ccy.get('[name="password"]').type(this.datos.UserContraseña)
+        cy.get('.label').contains('Ingresar').click();
+        
         cy.contains('NUEVA SOLICITUD').click()
         //Select de TIpo identificación 
         cy.get('#tipo_identificacion').should('be.visible').click(); // Abre el componente de selección

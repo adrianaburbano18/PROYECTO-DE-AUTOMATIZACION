@@ -8,19 +8,15 @@ import { faker } from "@faker-js/faker";
 
 describe('Primer conjunto de casos de prueba', function () {
 
-    before(function () {
-        cy.fixture('example').then(function (datos) {
-            this.datos = datos
-        })
-    })
-
     beforeEach(() => {
+        cy.fixture('example').then(function (datos) {
+          this.datos = datos
+        })
         cy.visit(Cypress.env('url'));
       });
    
-   
    it('Ejecutivo', function () {
-        cy.get('input').first().type('ejecutivo120@uni2.com.co')
+        cy.get('input').first().type('ejecutivo004@uni2.com.co')
         cy.get('input').last().type('finamiga2021')
         cy.get('.label').click()
 
@@ -110,8 +106,10 @@ describe('Primer conjunto de casos de prueba', function () {
             .type('4');
 
 
-        cy.contains('label', 'Actividad del negocio').should('be.visible').click()
-            .type('CULTIVO DE PALMA PARA ACEITE')
+        cy.contains('label', 'Actividad del negocio')
+        .type(this.datos.ActividaEconomica)
+        .type('{selectall}{backspace}')
+        .type(this.datos.ActividaEconomica)
         cy.get('div[id^="react-select-"]').click()
 
 
@@ -127,8 +125,9 @@ describe('Primer conjunto de casos de prueba', function () {
             .type('{selectall}{backspace}')
             .type('2');
 
-        cy.contains('label', 'Actividad económica').should('be.visible').click()
-            .type('CULTIVO DE PALMA PARA ACEITE')
+        cy.contains('label', 'Actividad económica')
+           .type('{selectall}{backspace}')
+        .type(this.datos.ActividaEconomica)
         cy.get('div[id^="react-select-"]').click()
 
 

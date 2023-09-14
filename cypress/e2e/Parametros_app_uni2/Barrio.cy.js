@@ -14,18 +14,17 @@ describe('Modulo parametros: Barrios', function () {
 
     it('Crear Barrios', function () {
 
-        cy.get('[name="email"]').type('eanaya@uni2.com.co')
-        cy.get('[name="password"]').type('finamiga2021')
+        cy.get('[name="email"]').type(this.datos.UserCoordinador)
+        cy.get('[name="password"]').type(this.datos.UserContraseña)
         cy.get('.label').contains('Ingresar').click();
 
         cy.wait(2000);
 
-        //ambiar rol
+        //Cambiar rol
 
         cy.CambiarRol();
 
         cy.navegarParametros();
-
         cy.get('.simple-icon-location-pin').click();
 
         cy.wait(2000)
@@ -35,7 +34,8 @@ describe('Modulo parametros: Barrios', function () {
 
         cy.get('[name="name"]').type(faker.name.firstName());
 
-        cy.get('.modal-content .modal-body .form-group #tipo').type('BARRIO')
+        cy.get('.modal-content #tipo').click()
+        .type('BARRIO')
         cy.get('div[id^="react-select-"]').click();
 
         cy.get('.modal-body .form-group').eq(2).click()
@@ -43,7 +43,7 @@ describe('Modulo parametros: Barrios', function () {
             .type('{selectall}{backspace}')//SELECCIONA Y LIMPIA EL CAMPO
             .type(this.datos.City)
         cy.get('div[id^="react-select-"]').click()
-        cy.get('.css-1uccc91-singleValue').should('contain.text', 'SAN ANDRES DE CUERQUIA - ANTIOQUIA')
+        cy.get('.css-1uccc91-singleValue').should('contain.text', this.datos.City)
 
         cy.get('.btn')
         cy.contains('GUARDAR').click();
@@ -53,17 +53,15 @@ describe('Modulo parametros: Barrios', function () {
         //Listado de barrios x ciudad
         cy.contains('label', 'Ciudad').click()
             .type('SAN ANDRES')
-            .type('{selectall}{backspace}')//SELECCIONA Y LIMPIA EL CAMPO
+            .type('{selectall}{backspace}')
             .type(this.datos.City)
         cy.get('div[id^="react-select-"]').click()
-        cy.get('.css-1uccc91-singleValue').should('contain.text', 'SAN ANDRES DE CUERQUIA - ANTIOQUIA')
+        cy.get('.css-1uccc91-singleValue').should('contain.text', this.datos.City)
 
         cy.wait(3000)
 
-        cy.get('#search')
-            .type('PALO BLANCO')
+        cy.get('#search').type('PALO BLANCO')
         cy.get('.search_click').click();
-
     })
 })
 

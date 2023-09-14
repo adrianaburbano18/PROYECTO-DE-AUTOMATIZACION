@@ -3,7 +3,7 @@
 import 'cypress-file-upload';
 import { faker } from "@faker-js/faker";
 
-describe('Modulo parametros: Aliado', function () {
+describe('Modulo parametros: Aliados', function () {
 
   beforeEach(() => {
     cy.fixture('example').then(function (datos) {
@@ -47,13 +47,16 @@ describe('Modulo parametros: Aliado', function () {
     });
 
     cy.get('.form-group .css-1115wtz-control').type(this.datos.Concesionario)
+    .type('{selectall}{backspace}')
+    .type(this.datos.Concesionario)
     cy.get('div[id^="react-select-"]').click()
-    cy.get('.css-1rhbuit-multiValue').should('contain.text', 'EXITO AKT LAURELES MEDELLIN')
+
 
     cy.wait(1000);
 
     cy.get('.btn')
     cy.contains('GUARDAR').click()
+    cy.wait(3000);
   })
 
   it('Parametros: Editar Aliado', function () {

@@ -45,8 +45,6 @@ Cypress.Commands.add('navegarAConfiguracionUsuario', () => {
   // Hacer clic en el ícono de usuario o el enlace del módulo deseado (reemplaza 'simple-icon-user-follow' con el selector correcto)
   cy.get('.simple-icon-user-follow').click();
 
-  cy.get('.simple-icon-settings').click();
-  
   // Retorna para poder encadenar más comandos si es necesario
   return cy;
 });
@@ -67,9 +65,6 @@ Cypress.Commands.add('CambiarRol', () => {
   return cy;
 });
 
-
-
-
 Cypress.Commands.add('generarCedula', () => {
   // Lógica para generar un número de cédula aleatorio
   const cedula = Math.floor(Math.random() * 1000000000).toString();
@@ -89,6 +84,74 @@ Cypress.Commands.add('generarCorreoElectronico', () => {
   const randomEmail = Math.random().toString(36).substring(2, 15) + "@gmail.com"
   return randomEmail;
 });
+
+
+
+Cypress.Commands.add('iterarCedulas', () => {
+  cy.fixture('example').then((data) => {
+    // Selecciona una cédula aleatoria del archivo JSON
+    const cedulaAleatoria = data.cedulas[Math.floor(Math.random() * data.cedulas.length)];
+
+    // Realiza acciones con la cédula seleccionada
+    cy.log(`Procesando cédula: ${cedulaAleatoria}`);
+
+    // Ejemplo: Ingresar la cédula en un campo de formulario
+    cy.get('[name="numero_identificacion"]').type(cedulaAleatoria);
+
+    // Puedes agregar más acciones o verificaciones aquí si es necesario
+    // Por ejemplo, enviar el formulario y verificar resultados
+  });
+});
+
+Cypress.Commands.add('CargarCedulaPDF', () => {
+  cy.get('#solicitud_tipo_documento').click()
+    .type('CEDULA')
+  cy.get('div[id^="react-select-"]').click() //(selecciona en la lista)
+
+  //cargar un archivo de forma manual porque el pdf se carga dentro del proyecto
+  cy.get('[name="documento"]').attachFile('Document.pdf');
+  cy.get('.button-add').type('AGREGAR').click();
+
+});
+
+Cypress.Commands.add('CargarSolicitudCreditoPDF', () => {
+  cy.get('#solicitud_tipo_documento').click()
+    .type('SOLICITUD DE CRÉDITO')
+  cy.get('div[id^="react-select-"]').click() //(selecciona en la lista)
+
+  //cargar un archivo de forma manual porque el pdf se carga dentro del proyecto
+  cy.get('[name="documento"]').attachFile('Document.pdf');
+  cy.get('.button-add').type('AGREGAR').click();
+
+});
+
+Cypress.Commands.add('Generarfechaexpediciondocumento', () => {
+
+  // Obtiene la fecha actual
+  const currentDatee = new Date();
+
+  // Calcula la fecha tres meses atrás
+  const threeMonthsAgo = new Date();
+  threeMonthsAgo.setMonth(currentDatee.getMonth() - 3);
+
+  // Obtiene los componentes de la fecha tres meses atrás
+  const years = threeMonthsAgo.getFullYear();
+  const months = String(threeMonthsAgo.getMonth() + 1).padStart(2, '0'); // Los meses son base 0, por lo que sumamos 1
+  const days = String(threeMonthsAgo.getDate()).padStart(2, '0');
+
+  // Formatea la fecha en el formato YYYY-MM-DD
+  const formattedDates = `${years}-${months}-${days}`;
+
+  // Luego, puedes usar formattedDate en tus comandos Cypress
+  cy.get('input[name="fecha_expedicion_documento"]').type(formattedDates);
+
+});
+
+Cypress.Commands.add('AñadirfechaNacimiento', () => {
+  const fechanacimiento = '1999-07-07';
+  cy.get('input[name="fecha_nacimiento"]').type(fechanacimiento);
+});
+
 
 
 

@@ -4,6 +4,9 @@ import { faker } from "@faker-js/faker";
 describe('Reportes', function () {
 
     beforeEach(() => {
+        cy.fixture('example').then(function (datos) {
+          this.datos = datos
+        })
         cy.visit(Cypress.env('url'));
       });
 

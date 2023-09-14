@@ -4,13 +4,17 @@ import { faker } from "@faker-js/faker";
 describe('Modulo parametros: Concesionarios', function () {
 
   beforeEach(() => {
+    cy.fixture('example').then(function (datos) {
+      this.datos = datos
+    })
+
     cy.visit(Cypress.env('url'));
   });
 
   it('Concesionarios', function () {
 
-    cy.get('[name="email"]').type('eanaya@uni2.com.co')
-    cy.get('[name="password"]').type('finamiga2021')
+    cy.get('[name="email"]').type(this.datos.UserCoordinador)
+    cy.get('[name="password"]').type(this.datos.UserContraseña)
     cy.get('.label').contains('Ingresar').click();
 
     cy.wait(1000);
@@ -20,18 +24,13 @@ describe('Modulo parametros: Concesionarios', function () {
     cy.wait(1000);
 
     cy.navegarParametros();
-
-
-
-    cy.get('.iconsminds-office')
-      .click();
+    cy.get('.iconsminds-office').click();
 
     // crear concesionario
     cy.get('.btn').click()
     cy.focused().click()
     cy.contains('NUEVO').click();
 
-    //npm install @faker-js/faker --save-dev -- nombres random
     cy.get('#form-concesionario')
       .find('[name="name"]')
       .type(faker.name.firstName());
