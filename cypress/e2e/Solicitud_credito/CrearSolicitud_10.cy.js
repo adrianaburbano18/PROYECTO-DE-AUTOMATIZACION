@@ -1,34 +1,26 @@
+/// <reference types="Cypress"/>   
 
 import 'cypress-file-upload';
-import { faker } from "@faker-js/faker";
-/// <reference types="Cypress"/>   
 
 
 describe('Solicitud Mesa de Ayuda', function () {
-
     beforeEach(() => {
         cy.fixture('example').then(function (datos) {
-          this.datos = datos
+            this.datos = datos
         })
-    
-        cy.visit(Cypress.env('url'));
-        cy.wait(2000)
-      });
 
-    it('Login principal', function () {
-    
-        cy.get('[name="email"]').type('mesa009@uni2.com.co')
-        ccy.get('[name="password"]').type(this.datos.UserContraseña)
+        cy.visit(Cypress.env('url'));
+    });
+
+    it('Mesa de ayuda-Originación', function () {
+        cy.get('[name="email"]').type(this.datos.UserMesaAyuda)
+        cy.get('[name="password"]').type(this.datos.UserContraseña)
         cy.get('.label').contains('Ingresar').click();
         
         cy.contains('NUEVA SOLICITUD').click()
-        //Select de TIpo identificación 
-        cy.get('#tipo_identificacion').should('be.visible').click(); // Abre el componente de selección
 
-        const randomIndex = Math.floor(Math.random() * this.datos.number.length); // Generate a random index within the length of the array
-        const selectedNumber = this.datos.number[randomIndex];   // Use the random index to select an identification number
-        cy.get('[name="numero_identificacion"]').type(selectedNumber);  // Type the selected identification number
-
+        cy.CeulasPreaprobador();
+        
         const indiceAleatorio = Math.floor(Math.random() * this.datos.producto.length);
         const productoAleatorio = this.datos.producto[indiceAleatorio];
         cy.get('#producto').click().type(productoAleatorio);

@@ -7,7 +7,9 @@
     "test": "node_modules\\.bin\\cypress run",
     "testChrome": "npm run test -- --browser chrome",
     "cypress-dashboard-run": "npx cypress run --browser chrome --headed --record --key 55935b63-57c5-4569-9acf-c2858f4df01f",
-    "browser": "chrome"
+    "browser": "chrome",
+    "testConjunto1": "npx cypress run --browser chrome --headed --record --key 55935b63-57c5-4569-9acf-c2858f4df01f -- --spec \"cypress\\e2e\\1-getting-started\\*\""
+
   },
   "author": "Adriana B",
   "license": "ISC",

@@ -69,6 +69,11 @@ Cypress.Commands.add('generarCedula', () => {
   // Lógica para generar un número de cédula aleatorio
   const cedula = Math.floor(Math.random() * 1000000000).toString();
   return cedula;
+
+  //cy.generarNumeroCelular().then((numeroCelular) => {
+    //  cy.log(`Número de celular generado: ${numeroCelular}`);
+    cy.get('#celular').type(numeroCelular);
+ // });
 });
 
 Cypress.Commands.add('generarNumeroCelular', () => {
@@ -86,20 +91,27 @@ Cypress.Commands.add('generarCorreoElectronico', () => {
 });
 
 
-
 Cypress.Commands.add('iterarCedulas', () => {
   cy.fixture('example').then((data) => {
     // Selecciona una cédula aleatoria del archivo JSON
     const cedulaAleatoria = data.cedulas[Math.floor(Math.random() * data.cedulas.length)];
-
-    // Realiza acciones con la cédula seleccionada
-    cy.log(`Procesando cédula: ${cedulaAleatoria}`);
 
     // Ejemplo: Ingresar la cédula en un campo de formulario
     cy.get('[name="numero_identificacion"]').type(cedulaAleatoria);
 
     // Puedes agregar más acciones o verificaciones aquí si es necesario
     // Por ejemplo, enviar el formulario y verificar resultados
+  });
+});
+
+Cypress.Commands.add('CeulasPreaprobador', () => {
+  cy.fixture('example').then((data) => {
+    // Selecciona una cédula aleatoria del archivo JSON
+    const cedulaAleatoria = data.CeulasPreaprobador[Math.floor(Math.random() * data.CeulasPreaprobador.length)];
+
+    // Ejemplo: Ingresar la cédula en un campo de formulario
+    cy.get('[name="numero_identificacion"]').type(cedulaAleatoria);
+
   });
 });
 

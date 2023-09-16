@@ -10,7 +10,7 @@ describe('Acciones de la solicitud de credito', function () {
         cy.get('input').first().type('mesa009@uni2.com.co')
         cy.get('input').last().type('finamiga2021')
         cy.get('.label').click();
-        cy.wait(5000);
+        cy.wait(3000);
     })
 
     it('Rechazar solicitud de crédito', function () {
@@ -21,12 +21,12 @@ describe('Acciones de la solicitud de credito', function () {
         cy.log('Se ha seleccionado la solicitud');
 
         //ASIGNAREN PROCESO 
-        cy.wait(3000)
+        cy.wait(2000)
 
         cy.get('.nav-item .nav-link')
         cy.contains('EN PROCESO').click();
 
-        cy.wait(3000);
+        cy.wait(2000);
 
         cy.get('.align-middle .finamiga-color .box-state')
             .first()// Selecciona el primer elemento del conjunto
@@ -63,6 +63,15 @@ describe('Acciones de la solicitud de credito', function () {
 
 
     it('Desisitir solicitud de crédito', function () {
+        //ASIGNAR SOLUCICITUD DE CRÉDITO
+        cy.get('.align-middle .d-flex .dropdown')
+            .first().click();
+
+        cy.log('Se ha seleccionado la solicitud');
+
+        //ASIGNAREN PROCESO 
+        cy.wait(2000)
+
         cy.get('.nav-item .nav-link')
         cy.contains('EN PROCESO').click();
         cy.wait(2000);
