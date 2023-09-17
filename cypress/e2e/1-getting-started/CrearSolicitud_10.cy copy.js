@@ -16,6 +16,15 @@ describe('Solicitud Mesa de Ayuda', function () {
         cy.get('[name="email"]').type(this.datos.UserMesaAyuda)
         cy.get('[name="password"]').type(this.datos.UserContraseña)
         cy.get('.label').contains('Ingresar').click();
+
+
+        cy.get('[name="email"]').type(this.datos.UserMesaAyuda)
+        cy.get('[name="password"]').type(this.datos.UserContraseña)
+        cy.get('.label').contains('Ingresar').click();
+
+        cy.get('[name="email"]').type(this.datos.UserMesaAyuda)
+        cy.get('[name="password"]').type(this.datos.UserContraseña)
+        cy.get('.label').contains('Ingresar').click();
         
         cy.contains('NUEVA SOLICITUD').click()
 
