@@ -17,7 +17,7 @@ describe('Solicitud Mesa de Ayuda', function () {
         cy.get('[name="password"]').type(this.datos.UserContraseña)
         cy.get('.label').contains('Ingresar').click();
         
-        cy.contains('NUEVA SOLICITUDsssssssssss').click()
+        cy.contains('NUEVA SOLICITUD').click()
 
         cy.CeulasPreaprobador();
         
