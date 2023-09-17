@@ -6,9 +6,9 @@
   "scripts": {
     "test": "node_modules\\.bin\\cypress run",
     "testChrome": "npm run test -- --browser chrome",
-    "cypress-dashboard-run": "npx cypress run --browser chrome --headed --record --key 55935b63-57c5-4569-9acf-c2858f4df01f",
+    "cypress-dashboard-run": "npx cypress run --browser chrome --headed --record --key npx cypress run --record --key 339c7f9b-23d1-4c57-b88e-1643948eabf2",
     "browser": "chrome",
-    "testConjunto1": "npx cypress run --browser chrome --headed --record --key 55935b63-57c5-4569-9acf-c2858f4df01f -- --spec \"cypress\\e2e\\1-getting-started\\*\""
+    "testConjunto1": "npx cypress run --browser chrome --headed --record --key npx cypress run --record --key 339c7f9b-23d1-4c57-b88e-1643948eabf2 -- --spec \"cypress\\e2e\\1-getting-started\\*\""
 
   },
   "author": "Adriana B",
