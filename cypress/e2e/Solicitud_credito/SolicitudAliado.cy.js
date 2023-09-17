@@ -30,7 +30,7 @@ describe('Rol alido gestion solicitud de crédito', function () {
 
         cy.wait(2000)
 
-        //Solicitante
+        //SolicitanteSSSSSSSSSSSSSSSSSSSSSSSSSSS
 
         cy.get('#genero').type('FEMENINO')
         cy.get('div[id^="react-select-"]').click();
