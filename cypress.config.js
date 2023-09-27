@@ -12,10 +12,10 @@ module.exports = defineConfig({
   
   //repedir las pruebas
   //Si una prueba falla en esta ejecución estándar, Cypress realizará un intento adicional antes de considerar la prueba como fallida.
-  retries:{
-  runMode:1
-  //openMode:3
-  },
+  //retries:{
+ //runMode:0
+  //openMode:0
+  //},
   env: {
     url: "https://qa-app.uni2.com.co",
   },

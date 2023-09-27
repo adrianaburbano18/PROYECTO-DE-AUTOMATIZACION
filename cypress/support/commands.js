@@ -92,8 +92,8 @@ Cypress.Commands.add('generarCorreoElectronico', () => {
 
 
 Cypress.Commands.add('iterarCedulas', () => {
-  cy.fixture('example').then((data) => {
-    // Selecciona una cédula aleatoria del archivo JSON
+  cy.fixture('Cedulas').then((data) => {
+    // Selecciona una cédula aleatoria del archivo JSON.................. 
     const cedulaAleatoria = data.cedulas[Math.floor(Math.random() * data.cedulas.length)];
 
     // Ejemplo: Ingresar la cédula en un campo de formulario
@@ -105,7 +105,7 @@ Cypress.Commands.add('iterarCedulas', () => {
 });
 
 Cypress.Commands.add('CeulasPreaprobador', () => {
-  cy.fixture('example').then((data) => {
+  cy.fixture('Cedulas').then((data) => {
     // Selecciona una cédula aleatoria del archivo JSON
     const cedulaAleatoria = data.CeulasPreaprobador[Math.floor(Math.random() * data.CeulasPreaprobador.length)];
 
@@ -162,9 +162,36 @@ Cypress.Commands.add('Generarfechaexpediciondocumento', () => {
 Cypress.Commands.add('AñadirfechaNacimiento', () => {
   const fechanacimiento = '1999-07-07';
   cy.get('input[name="fecha_nacimiento"]').type(fechanacimiento);
+
 });
 
 
+//SECCION DE SOLICITUD DE CRÉDITO
+Cypress.Commands.add('SolicitudCultiva', () => {
+cy.get('#subproducto').should('be.visible').click();
+cy.get('.react-select').contains('CULTIVA').click();
 
+cy.get('#origen').click();
+cy.get('.react-select').contains('LLAMADA').click();
+
+cy.get('#medio').click();
+cy.get('.react-select').contains('REDES SOCIALES').click();
+
+cy.get('#tipo_credito').click();
+cy.get('.react-select').contains('RURAL').click();
+
+cy.get('#seguro_voluntario').click();
+cy.get('.react-select').contains('TIPO 2').click();
+
+cy.get('#tipo_seguro').click();
+cy.get('.react-select').contains('URBANO').click();
+
+cy.get('.form-control').type('1000000');
+
+cy.get('#plazo_solicitado').click();
+cy.get('.react-select').contains('14 Meses').click();
+
+
+});
 
 module.exports = {};

@@ -6,21 +6,18 @@
   "scripts": {
     "test": "node_modules\\.bin\\cypress run",
     "testChrome": "npm run test -- --browser chrome",
-    "cypress-dashboard-run": "npx cypress run --browser chrome --headed --record --key 73daaf68-68d5-4e1c-abd0-9efb28be2deb",
     "browser": "chrome",
-    "testConjunto1": "npx cypress run --browser chrome --headed --record --key 73daaf68-68d5-4e1c-abd0-9efb28be2deb -- --spec \"cypress\\e2e\\1-getting-started\\*\""
-
+    "cypress-dashboard-run": "npx cypress run --browser chrome --headed --record --key 73daaf68-68d5-4e1c-abd0-9efb28be2deb",
+    "testConjunto1": "npm run cypress-dashboard-run -- --spec \"cypress\\e2e\\3-CoordinadorMesaAyuda\\*\"",
+    "cypress-dashboard-runSinNavegador": "npm run test --browser chrome -- --record --key 73daaf68-68d5-4e1c-abd0-9efb28be2deb",
+    "Conjunto1SinNavegador": "npm run cypress-dashboard-runSinNavegador -- --spec \"cypress\\e2e\\4-MesaAyuda\\*\""
   },
   "author": "Adriana B",
   "license": "ISC",
   "devDependencies": {
     "@faker-js/faker": "^8.0.2",
     "cypress": "^12.17.4",
-    "cypress-cucumber-preprocessor": "^4.3.1",
     "cypress-file-upload": "^5.0.8",
     "faker": "^6.6.6"
-  },
-  "cypress-cucumber-preprocessor": {
-    "nomGlobalStepDeFinitions": true
   }
 }

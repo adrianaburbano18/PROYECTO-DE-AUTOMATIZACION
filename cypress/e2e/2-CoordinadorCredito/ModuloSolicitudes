@@ -1,2 +1,0 @@
-/// <reference types="Cypress"/>
-npx cypress run --record --key 73daaf68-68d5-4e1c-abd0-9efb28be2deb
