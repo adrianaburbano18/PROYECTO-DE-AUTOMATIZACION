@@ -19,9 +19,11 @@ describe('Modulo parametros: Aliados', function () {
     cy.get('[name="password"]').type(this.datos.UserContraseña)
     cy.get('.label').contains('Ingresar').click();
 
-    cy.wait(2000);
+    cy.wait(4000);
 
-    cy.navegarAConfiguracionUsuario();
+    cy.get('.menu-button').click();
+    cy.get('a[data-flag="parametros"]').click()
+    cy.contains('Aliados').click()
 
     cy.get('.btn').click()
     cy.focused().click()// Click on el with focus
@@ -63,9 +65,11 @@ describe('Modulo parametros: Aliados', function () {
     cy.get('[name="password"]').type(this.datos.UserContraseña)
     cy.get('.label').contains('Ingresar').click();
 
-    cy.wait(2000);
+    cy.wait(3000);
 
-    cy.navegarAConfiguracionUsuario();
+    cy.get('.menu-button').click();
+    cy.get('a[data-flag="parametros"]').click()
+    cy.contains('Aliados').click()
 
     cy.get('.dropdown')
     cy.contains('OPCIONES').click()
@@ -101,6 +105,7 @@ describe('Modulo parametros: Aliados', function () {
     cy.wait(2000);
 
     cy.navegarAConfiguracionUsuario();
+    cy.contains('Aliados').click()
 
     cy.get('.dropdown')
     cy.contains('OPCIONES').click()

@@ -12,7 +12,6 @@ describe('Modulo parametros: Concesionarios', function () {
   });
 
   it('Crear Concesionarios', function () {
-
     cy.get('[name="email"]').type(this.datos.UserCoordinador)
     cy.get('[name="password"]').type(this.datos.UserContraseña)
     cy.get('.label').contains('Ingresar').click();
@@ -46,9 +45,9 @@ describe('Modulo parametros: Concesionarios', function () {
     cy.get('#form-concesionario #distribuidor').click()
       .find('.list__menu')
       .contains('MULTIMARCA').click();
-
+    
     // select de razon social
-    cy.get('#form-concesionario .form-group').eq(4).click();
+    cy.contains('label', 'Razon social concesionarios').click()
     cy.get('div[id^="react-select-"]')
       .contains('CC 2587021841 - HFWO_JUAXXXXXANDUN').click()
 
@@ -60,35 +59,6 @@ describe('Modulo parametros: Concesionarios', function () {
     cy.get('.btn')
     cy.contains('GUARDAR').click()
 
-    cy.wait(2000);
-
-    // Editar concesionario
-    cy.get('.dropdown')
-    cy.contains('OPCIONES').click()
-
-    cy.get('.dropdown-item')
-    cy.contains('EDITAR').click()
-
-    cy.get('#form-concesionario')
-      .find('[name="name"]')
-      .type(faker.name.firstName());
-
-    // select de razon social
-    cy.get('#form-concesionario .form-group').eq(4).click()
-      .contains('NIT 7231811632 - 5LEH_CASXXXXXRALGO').click()
-
-    //listado de ciudades        
-    cy.get('#form-concesionario #ciudad').click()
-      .find('.list__menu')
-      .contains('MEDELLIN').click();
-
-    //Dirección
-    cy.get('.quit-padding-select-address .form-control[name="direccion_select"]')
-      .select('VEREDA')
-    cy.get('#direccionUno').type('SAN CARLOS').click();
-
-    cy.get('.btn')
-    cy.contains('GUARDAR').click()
   })
 
   it('Editar Concesionarios', function () {

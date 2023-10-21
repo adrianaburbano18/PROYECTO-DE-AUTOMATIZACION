@@ -5,7 +5,7 @@ import { faker } from "@faker-js/faker";
 
 
 describe('GESTION HUMANA', function () {
-
+//PRUEBAS
   beforeEach(() => {
     cy.fixture('example').then(function (datos) {
       this.datos = datos
@@ -57,7 +57,7 @@ describe('GESTION HUMANA', function () {
 
     cy.get('#bottom-navigation-bar .simple-icon-arrow-right').last().click();
 
-    cy.wait(4000);
+    cy.wait(2000);
 
     //CONTACTO
     cy.contains('label', 'Ciudad').click()
@@ -170,13 +170,13 @@ describe('GESTION HUMANA', function () {
     cy.get('#bottom-navigation-bar .simple-icon-arrow-right').click();
     cy.wait(2000);
 
-    cy.get('.swal2-container .swal2-popup .swal2-actions .swal2-confirm')
-      .contains('ACEPTAR')
-      .click();
+    cy.get('.btn').contains('ACEPTAR').click();
+
+    cy.wait(1000);
+
+    cy.get('.btn').contains('ACEPTAR').click();
 
     cy.wait(2000);
-
-    cy.get('.swal2-actions .swal2-confirm').contains('ACEPTAR').click();
   })
 
   it('Educativo', function () {
@@ -225,7 +225,7 @@ describe('GESTION HUMANA', function () {
 
     cy.get('#bottom-navigation-bar .simple-icon-arrow-right').last().click();
 
-    cy.wait(4000);
+    cy.wait(2000);
 
     //CONTACTO
     cy.contains('label', 'Ciudad').click()
@@ -343,13 +343,11 @@ describe('GESTION HUMANA', function () {
     cy.get('#bottom-navigation-bar .simple-icon-arrow-right').click();
     cy.wait(2000);
 
-    cy.get('.swal2-container .swal2-popup .swal2-actions .swal2-confirm')
-      .contains('ACEPTAR')
-      .click();
+    cy.get('.btn').contains('ACEPTAR').click();
 
-    cy.wait(2000);
+    cy.wait(1000);
 
-    cy.get('.swal2-actions .swal2-confirm').contains('ACEPTAR').click();
+    cy.get('.btn').contains('ACEPTAR').click();
   })
 })
 

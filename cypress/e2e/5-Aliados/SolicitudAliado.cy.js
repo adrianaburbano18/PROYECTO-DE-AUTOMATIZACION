@@ -73,6 +73,9 @@ describe('Rol alido gestion solicitud de crédito', function () {
             .select('VEREDA')
         cy.get('#direccionUno').type('{selectall}{backspace}').type('SAN CARLOS').click();
 
+        cy.get('[name="referencia_ubicacion"]')
+        .type('{selectall}{backspace}').type('AL LADO DEL CAÑO SOBRE LA VIA CENTRAL').click();
+
         cy.generarNumeroCelular().then((numeroCelular) => {
             cy.get('#celular').type('{selectall}{backspace}').type(numeroCelular);
         });
@@ -135,9 +138,9 @@ describe('Rol alido gestion solicitud de crédito', function () {
         cy.get('#bottom-navigation-bar .simple-icon-arrow-right').click();
         cy.wait(1000);
 
-        cy.get('.swal2-confirm').contains('ACEPTAR').click();
-
-        cy.get('.swal2-confirm').contains('ACEPTAR').click();
+        cy.get('.btn').contains('ACEPTAR').click();
+    
+        cy.get('.btn').contains('ACEPTAR').click();
     })
 
 })

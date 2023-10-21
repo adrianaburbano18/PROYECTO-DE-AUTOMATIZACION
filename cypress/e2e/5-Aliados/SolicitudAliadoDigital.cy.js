@@ -38,6 +38,11 @@ describe('Primer conjunto de casos de prueba', function () {
       .type('MOTO RENOVACIÓN')
     cy.get('div[id^="react-select-"]').click();
 
+
+    cy.get('#concesionario')
+    .type('JMC FONTIBON')
+    cy.get('div[id^="react-select-"]').click();
+
     cy.get('#marca')
       .type('AKT')
     cy.get('div[id^="react-select-"]').click()
@@ -114,13 +119,11 @@ describe('Primer conjunto de casos de prueba', function () {
 
     cy.get('#bottom-navigation-bar .simple-icon-arrow-right').last().click();
 
-    cy.get('.swal2-confirm')
-      .contains('ACEPTAR')
-      .click();
+    cy.get('.btn').contains('ACEPTAR').click();
 
-    cy.get('.swal2-confirm')
-      .contains('ACEPTAR')
-      .click();
+    cy.wait(1000);
+
+    cy.get('.btn').contains('ACEPTAR').click();
 
   })
 })

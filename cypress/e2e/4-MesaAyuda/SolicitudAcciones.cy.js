@@ -78,6 +78,8 @@ describe('Acciones de la solicitud de credito', function () {
         cy.get('.align-middle .finamiga-color .box-state')
             .first()// Selecciona el primer elemento del conjunto
             .click();
+ 
+          cy.wait(3000);
 
         cy.get('#bottom-navigation-bar .simple-icon-arrow-right').last().click();
 

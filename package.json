@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "node_modules\\.bin\\cypress run",
+    "start": "index.js",
     "testChrome": "npm run test -- --browser chrome",
     "browser": "chrome",
     "cypress-dashboard-run": "npx cypress run --browser chrome --headed --record --key 73daaf68-68d5-4e1c-abd0-9efb28be2deb",

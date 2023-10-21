@@ -59,22 +59,7 @@ describe('Reportes', function () {
 
     cy.get('a[data-flag="blankpage"]').click()
     cy.contains('Garantías Comunitarias').click()
-
-    cy.get('.nav-item')
-      .contains('Generales')
-      .click();
-
-
-    //////////////////////////////////////////////////////////////////////
-    cy.get('#tipo_reporte')
-      .type('GESTIÓN COMITE')
-    cy.get('div[id^="react-select-"]').click();
-
-
-  
-
   })
-
 
 })
 

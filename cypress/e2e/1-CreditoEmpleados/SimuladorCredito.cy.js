@@ -10,16 +10,17 @@ describe('Reportes', function () {
         })
     });
 
-    it('Simulador de crédito: LIBRE INVERSIÓN ', function () {
+    it('Simulador de crédito: LIBRE INVERSIÓN/EDUCATIVO ', function () {
 
         cy.get('input').first().type('latorres@uni2.com.co')
         cy.get('input').last().type('finamiga2021')
         cy.get('.label').click()
 
-        cy.wait(1000);
+        cy.wait(3000);
     
         cy.get('.menu-button').click();
-        cy.get('.simple-icon-calculator').click();
+        cy.get('a[data-flag="simulador-credito"]').click()
+      
 
         cy.get('#empleado_credito_producto').click()
             .type(this.datos.empleado_libre_inversion)
@@ -32,18 +33,11 @@ describe('Reportes', function () {
 
         cy.get('#tipo_garantia').type('SIN GARANTIA')
         cy.get('div[id^="react-select-"]').click();
-    })
 
-    it('Simulador de credito:  EDUCATIVO ', function () {
-
-        cy.get('input').first().type('latorres@uni2.com.co')
-        cy.get('input').last().type('finamiga2021')
-        cy.get('.label').click()
-
-        cy.wait(1000);
-
+        cy.wait(2000);
+    
         cy.get('.menu-button').click();
-        cy.get('.simple-icon-calculator').click();
+        cy.get('a[data-flag="simulador-credito"]').click()
 
         cy.get('#empleado_credito_producto').click()
             .type(this.datos.empleado_educativo)
@@ -53,7 +47,8 @@ describe('Reportes', function () {
             .type('PREGRADO')
         cy.get('div[id^="react-select-"]').click();
 
-        cy.get('[name="monto_aprobado"]').type('1000000')
+        cy.get('[name="monto_aprobado"]')
+        .type('{selectall}{backspace}').type('1000000')
 
         cy.get('#plazo').type('34 meses')
         cy.get('div[id^="react-select-"]').click();

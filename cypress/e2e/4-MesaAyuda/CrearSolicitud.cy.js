@@ -31,8 +31,7 @@ describe('Solicitud Mesa de Ayuda', function () {
 
         cy.wait(2000)
 
-        cy.get('.modal-footer .btn')
-        cy.contains('ACEPTAR').click();
+       
 
         cy.get('#bottom-navigation-bar .simple-icon-arrow-right').last().click();
 

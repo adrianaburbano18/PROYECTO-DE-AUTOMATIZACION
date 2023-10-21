@@ -19,8 +19,6 @@ describe('COORDINADOR DE CRÉDITO', function () {
         cy.CambiarRol();
 
         cy.get('.menu-button').click();
-
-        cy.wait(1000);
         cy.get('a[data-flag="searcRequest"]').click()
        
         cy.get('[name="numero_identificacion"]')

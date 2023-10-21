@@ -1,5 +1,4 @@
 const { defineConfig } = require("cypress");
-
 module.exports = defineConfig({
   projectId: '527yw2',
   e2e: {
@@ -7,17 +6,14 @@ module.exports = defineConfig({
       // implement node event listeners here q969qf fwqaiu
     },
   },
-
-  testFile:"**/*.feature",
-  
+  testFile: "**/*.feature",
   //repedir las pruebas
   //Si una prueba falla en esta ejecución estándar, Cypress realizará un intento adicional antes de considerar la prueba como fallida.
-  //retries:{
- //runMode:0
-  //openMode:0
-  //},
+  /*  retries: {
+      runMode: 1,
+     // openMode: 0
+    },*/
   env: {
     url: "https://qa-app.uni2.com.co",
   },
- 
 });

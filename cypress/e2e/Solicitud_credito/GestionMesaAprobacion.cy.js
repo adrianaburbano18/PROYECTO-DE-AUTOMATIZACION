@@ -17,7 +17,7 @@ describe('Primer conjunto de casos de prueba', function () {
     })
 
     it('Mesa de aprobación', function () {
-        cy.get('input').first().type('mesa012@uni2.com.co')
+        cy.get('input').first().type('mesa002@uni2.com.co')
         cy.get('input').last().type('finamiga2021')
         cy.get('.label').click()
 

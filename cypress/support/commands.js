@@ -39,13 +39,8 @@ Cypress.Commands.add('navegarAConfiguracionUsuario', () => {
   // Hacer clic en el botón de menú
   cy.get('.menu-button').click();
 
-  // Hacer clic en el ícono de configuración (reemplaza 'simple-icon-settings' con el selector correcto)
-  cy.get('.simple-icon-settings').click();
+  cy.get('a[data-flag="parametros"]').click()
 
-  // Hacer clic en el ícono de usuario o el enlace del módulo deseado (reemplaza 'simple-icon-user-follow' con el selector correcto)
-  cy.get('.simple-icon-user-follow').click();
-
-  // Retorna para poder encadenar más comandos si es necesario
   return cy;
 });
 

@@ -29,9 +29,18 @@ describe('Modulo parametros: Persona excepcion', function () {
     cy.get('.btn')
     cy.contains('NUEVO').click()
 
-    cy.get('#tipo_identificacion').should('be.visible').click(); 
+   /* cy.get('#tipo_identificacion').should('be.visible').click(); 
     cy.get('.react-select')
-      .contains('IDENTIFICACIÓN TRIBUTARIA').click(); 
+      .contains('IDENTIFICACIÓN TRIBUTARIA').click(); */
+
+        cy.get('#tipo_identificacion').should('be.visible').click().type('IDENTIFICACION')
+        cy.get('.list__value-container').contains('IDENTIFICACION TRIBUTARIA').click()
+      /*  cy.get('.react-select').each(($el, index, $list) =>{ 
+        if($el.text()=="IDENTIFICACION TRIBUTARIA")
+          {
+            cy.wrap($el).click() 
+          }
+        })*/
 
     cy.generarCedula().then((cedula) => {
       cy.get('[name="numero_identificacion"]').type(cedula)

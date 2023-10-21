@@ -59,6 +59,8 @@ describe('Comite', function () {
         //PPI
         cy.get('#bottom-navigation-bar .simple-icon-arrow-right').last().click();
 
+        cy.get('#bottom-navigation-bar .simple-icon-arrow-right').last().click();
+
         cy.get('#vinculo_agro').type('SI')
         cy.get('div[id^="react-select-"]').click()
 
@@ -67,13 +69,11 @@ describe('Comite', function () {
 
         cy.get('#bottom-navigation-bar .simple-icon-arrow-right').last().click();
 
-        cy.get('.swal2-container .swal2-popup .swal2-actions .swal2-confirm')
-            .contains('ACEPTAR')
-            .click();
+        cy.get('.btn').contains('ACEPTAR').click();
 
-        cy.wait(2000);
-
-        cy.get('.swal2-actions .swal2-confirm').contains('ACEPTAR').click();
+        cy.wait(1000);
+    
+        cy.get('.btn').contains('ACEPTAR').click();
 
     })
 })
