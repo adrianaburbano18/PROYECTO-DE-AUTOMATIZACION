@@ -38,6 +38,8 @@ describe('GESTION HUMANA', function () {
     cy.get('#genero').type('FEMENINO')
     cy.get('div[id^="react-select-"]').click();
 
+    // pruebas pruebas
+
     cy.contains('label', 'Lugar expedición documento').click()
       .type('SAN ANDRES DE CUERQUIA')
       .type('{selectall}{backspace}')

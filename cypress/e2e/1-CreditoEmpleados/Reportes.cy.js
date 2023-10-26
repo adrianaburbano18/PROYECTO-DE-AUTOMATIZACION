@@ -17,7 +17,7 @@ describe('Reportes', function () {
 
         cy.wait(5000);
 
-        //MENU
+        //MENUss
         cy.get('.menu-button').click();
 
         cy.get('.iconsminds-line-chart-1').click();
