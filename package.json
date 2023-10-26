@@ -19,6 +19,6 @@
     "@faker-js/faker": "^8.0.2",
     "cypress": "^13.3.3",
     "cypress-file-upload": "^5.0.8",
-    "faker": "^6.6.6"
+    "faker": "^5.5.3"
   }
 }
