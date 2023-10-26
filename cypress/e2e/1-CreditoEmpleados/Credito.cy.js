@@ -5,7 +5,7 @@ import { faker } from "@faker-js/faker";
 
 
 describe('GESTION HUMANA', function () {
-//PRUEBASlllllllllllllll
+//PRUEBAS
   beforeEach(() => {
     cy.fixture('example').then(function (datos) {
       this.datos = datos
