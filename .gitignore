@@ -1,5 +1,4 @@
 # Ignorar archivos de video generados por Cypress
 *.mp4
-
 # Ignorar la carpeta de node_modules
 node_modules/
