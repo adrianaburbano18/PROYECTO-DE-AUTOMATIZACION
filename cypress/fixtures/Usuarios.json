@@ -1,0 +1,76 @@
+[  
+      {  
+        "name": "Usuario ejecutivo",
+        "username": "ejecutivo214@uni2.com.co",
+        "password": "finamiga2021",
+        "expected": "EJECUTIVO"
+      },
+ 
+     {
+       "name": "Usuario mesa de ayuda",
+       "username": "mesa010@uni2.com.co",
+       "password": "finamiga2021",
+       "expected": "MESA DE AYUDA"
+     },
+ 
+     {  
+       "name": "Usuario ejecutivo",
+       "username": "ejecutivo303@uni2.com.co",
+       "password": "finamiga2021",
+       "expected": "EJECUTIVO"
+ 
+    },
+ 
+    {
+       "name": "Usuario ejecutivo",
+       "username": "ejecutivo010@uni2.com.co",
+       "password": "finamiga2021",
+       "expected": "EJECUTIVO"
+ 
+    },
+ 
+    {
+        "name": "Usuario ejecutivo",
+        "username": "ejecutivo301@uni2.com.co",
+        "password": "finamiga2021",
+        "expected": "EJECUTIVO"
+    },
+ 
+    {  
+      "name": "Usuario falso",
+      "username": "aprendizmesa@uni2.com.co",
+      "password": "finamiga2021",
+      "expected": "Credenciales invalidas"
+ 
+   },
+ 
+   {
+       "name": "Usuario falso",
+       "username": "aburbano@uni2.com.co",
+       "password": "finamiga2021",
+       "expected": "Credenciales invalidas"
+   },
+ 
+   {
+       "name": "Usuario falso",
+       "username": "jreyes@uni2.com.co",
+       "password": "finamiga2021",
+       "expected": "Credenciales invalidas"
+    },
+ 
+   {
+      "name": "Comprobar correo",
+      "username": "pruebas@125454545",
+      "password": "finamiga2021",
+      "expected": "El campo correo electrónico es obligatorio debe ser un correo electrónico válido"
+   },
+ 
+   {
+      "name": "Restablecer contraseña",
+      "username": "test@uni2.com.co",
+      "password": "finamiga2021",
+      "expected": "Restablecer Contraseña",
+      "descripcion": "Por favor, actualice su contraseña para poder acceder de nuevo."
+   }
+ 
+]
