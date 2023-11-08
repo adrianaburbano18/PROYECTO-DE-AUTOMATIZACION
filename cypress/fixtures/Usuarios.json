@@ -40,14 +40,23 @@
       "name": "Usuario falso",
       "username": "aprendizmesa@uni2.com.co",
       "password": "finamiga2021",
+      "title": "Error",
       "expected": "Credenciales invalidas"
  
    },
  
    {
+      "name": "Usuario auditor",
+      "username": "drodriguez@uni2.com.co",
+      "password": "finamiga2021",
+      "expected": "AUDITOR"
+   },
+
+   {
        "name": "Usuario falso",
        "username": "aburbano@uni2.com.co",
        "password": "finamiga2021",
+       "title": "Error",
        "expected": "Credenciales invalidas"
    },
  
@@ -55,6 +64,7 @@
        "name": "Usuario falso",
        "username": "jreyes@uni2.com.co",
        "password": "finamiga2021",
+       "title": "Error",
        "expected": "Credenciales invalidas"
     },
  
@@ -69,8 +79,29 @@
       "name": "Restablecer contraseña",
       "username": "test@uni2.com.co",
       "password": "finamiga2021",
-      "expected": "Restablecer Contraseña",
+      "expected": "Información",
       "descripcion": "Por favor, actualice su contraseña para poder acceder de nuevo."
-   }
+   },
+
+      {  
+        "name": "Restablecer contraseña 2",
+        "username": "abetancourth@uni2.com.co",
+        "password": "finamiga2021",
+        "title1": "Error",
+        "expected": "Credenciales invalidas",
+        "title2": "Advertencia",
+        "title3": "¡Éxito!",
+        "expected2": "Fue enviado un correo electrónico para restablecer la contraseña, por favor revisa tu bandeja de entrada o en la carpeta de spam."
+      },
+
+      {
+        "name": "Correo invalido",
+        "username": "aburbano@uni2.com.co",
+        "password": "finamiga2021",
+        "title1": "Error",
+        "expected": "Credenciales invalidas",
+        "title2": "Advertencia",
+        "expected2": "Correo Invalido"
+     }
  
 ]

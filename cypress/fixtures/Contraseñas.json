@@ -1,0 +1,28 @@
+[  
+    {  
+        "name": "Cambio contraseña",
+        "password": "*789533*ASb",
+        "password2": "*789533*ASb"
+    },
+ 
+    {
+       "name": "Contraseña sin mayuscula y minuscula",
+       "password": "*123456*",
+       "password2": "*123456*",
+       "expected": "La contraseña debe contener mínimo una letra minúscula y una letra mayúscula."
+    },
+
+    {
+        "name": "Contraseña sin caracter especial",
+        "password": "123456XYz",
+        "password2": "123456XYz",
+        "expected": "La contraseña debe contener mínimo un carácter especial."
+    },
+
+    {
+        "name": "Contraseña no coincide",
+        "password": "123456XYz#",
+        "password2": "123456XYz",
+        "expected": "La contraseña no coincide"
+    }
+]     
