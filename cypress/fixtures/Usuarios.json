@@ -1,4 +1,4 @@
-[  
+[ 
       {  
         "name": "Usuario ejecutivo",
         "username": "ejecutivo214@uni2.com.co",
@@ -27,6 +27,13 @@
        "password": "finamiga2021",
        "expected": "EJECUTIVO"
  
+    },
+
+    {  
+      "name": "Usuario Coordinador",
+      "username": "abetancourth@uni2.com.co",
+      "password": "*789533*ASb",
+      "expected": "COORDINADOR DE CREDITO"
     },
  
     {
@@ -76,7 +83,7 @@
    },
  
    {
-      "name": "Restablecer contraseña",
+      "name": "Actualizar contraseña",
       "username": "test@uni2.com.co",
       "password": "finamiga2021",
       "expected": "Información",
@@ -84,7 +91,7 @@
    },
 
       {  
-        "name": "Restablecer contraseña 2",
+        "name": "Restablecer contraseña",
         "username": "abetancourth@uni2.com.co",
         "password": "finamiga2021",
         "title1": "Error",
@@ -102,6 +109,13 @@
         "expected": "Credenciales invalidas",
         "title2": "Advertencia",
         "expected2": "Correo Invalido"
-     }
+     },
+
+     {
+      "name": "Crear aliado",
+      "username": "abetancourth2@uni2.com.co",
+      "password": "finamiga2021",
+      "expected": "Aliado"
+      }
  
 ]

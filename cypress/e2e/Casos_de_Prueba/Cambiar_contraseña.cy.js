@@ -1,5 +1,5 @@
 const tests= require('../../fixtures/Contraseñas.json')
-describe('Pruebas para restablecer la contraseña', () => {
+describe('Pruebas para cambiar la contraseña', () => {
 
     beforeEach( () => {
         cy.visit("https://qa-app.uni2.com.co/user/reset-password?token=c6d19f2a9faaa")

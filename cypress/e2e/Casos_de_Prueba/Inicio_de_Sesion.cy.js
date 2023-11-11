@@ -18,6 +18,9 @@ describe('Validacion Usuarios Inicio de Sesion', () => {
             cy.wait(2000)
         }else if(test.name === "Usuario mesa de ayuda" ){
             cy.get('.name').should('contain', test.expected)
+            cy.wait(2000)   
+        }else if(test.name === "Usuario Coordinador" ){
+            cy.get('.name').should('contain', test.expected)
             cy.wait(2000)
         }else if(test.name === "Usuario falso" ){
             cy.get("h4.title").should('contain', test.title)
@@ -29,11 +32,11 @@ describe('Validacion Usuarios Inicio de Sesion', () => {
         }else if(test.name === "Comprobar correo" ){
             cy.get('.form-group').should('contain', test.expected).should("be.visible")
             cy.wait(2000)
-        }else if(test.name === "Restablecer contraseña" ){
+        }else if(test.name === "Actualizar contraseña" ){
             cy.get('.ModalAlert--internalTitle').should('contain', test.expected).should("be.visible")
             cy.get('p').should('contain', test.descripcion).should("be.visible")
             cy.wait(2000)
-        }else if(test.name === "Restablecer contraseña 2" ){
+        }else if(test.name === "Restablecer contraseña" ){
             cy.get("h4.title").should('contain', test.title1)
             cy.get('.notification-container').should('contain', test.expected)
             cy.wait(2000)

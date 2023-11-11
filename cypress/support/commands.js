@@ -60,17 +60,6 @@ Cypress.Commands.add('CambiarRol', () => {
   return cy;
 });
 
-Cypress.Commands.add('generarCedula', () => {
-  // Lógica para generar un número de cédula aleatorio
-  const cedula = Math.floor(Math.random() * 1000000000).toString();
-  return cedula;
-
-  //cy.generarNumeroCelular().then((numeroCelular) => {
-    //  cy.log(`Número de celular generado: ${numeroCelular}`);
-    cy.get('#celular').type(numeroCelular);
- // });
-});
-
 Cypress.Commands.add('generarNumeroCelular', () => {
   // Genera un número aleatorio de 8 dígitos (sin contar '31' al principio)
   const numeroAleatorio = Math.floor(Math.random() * 90000000) + 10000000;
@@ -186,7 +175,18 @@ cy.get('.form-control').type('1000000');
 cy.get('#plazo_solicitado').click();
 cy.get('.react-select').contains('14 Meses').click();
 
-
 });
 
+Cypress.Commands.add("loginapp", (email,password) =>{
+  cy.get("input[name='email']").type(email)
+  cy.get("input[name='password']").type(password)
+  cy.get("span[class='label']").contains("Ingresar").click()
+})
+
+Cypress.Commands.add('generarCedula', () => {
+    const cedula = Math.floor(Math.random() * 1000000000).toString();
+    return cedula;
+  
+});
+ 
 module.exports = {};
